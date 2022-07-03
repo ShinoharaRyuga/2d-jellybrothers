@@ -3,7 +3,6 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 
-
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] string _player1PrefabName = "Player1";
