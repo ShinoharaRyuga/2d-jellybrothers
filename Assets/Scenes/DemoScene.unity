@@ -670,6 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 446405178}
   _bc2D: {fileID: 446405180}
+  _isActive: 0
 --- !u!1 &464346447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,8 +2075,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e4c671c005230439c2aa84511ae622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _door: {fileID: 472161964}
+  _gimmickObject: {fileID: 472161964}
   _player: 0
+  _isActive: 0
 --- !u!1 &1067297713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,8 +2350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e4c671c005230439c2aa84511ae622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _door: {fileID: 464346452}
+  _gimmickObject: {fileID: 464346452}
   _player: 1
+  _isActive: 1
 --- !u!1 &1243777722
 GameObject:
   m_ObjectHideFlags: 0
