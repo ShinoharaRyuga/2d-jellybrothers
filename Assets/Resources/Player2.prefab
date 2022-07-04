@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _jumpPower: 6
+  _currentShape: 0
 --- !u!114 &2578018646423416595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 0
-  m_SynchronizeRotation: 1
+  m_SynchronizeRotation: 0
   m_SynchronizeScale: 1
   m_UseLocal: 1
 --- !u!114 &8126630149621002054

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
@@ -8,12 +6,12 @@ using Photon.Pun;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField, Tooltip("移動速度")] float _speed = 3f;
+    [SerializeField, Tooltip("ジャンプ力")] float _jumpPower = 3f;
     [SerializeField, Tooltip("現在の形")] Shape _currentShape = Shape.Cube;
-    Vector2 _moveDirction = Vector2.zero;
-    float _horizontal = 0f;
     Rigidbody2D _rb2D = default;
     PhotonView _view => GetComponent<PhotonView>();
 
+    bool _isJump = true;
     void Start()
     {
         if (_view.IsMine)
@@ -26,29 +24,37 @@ public class PlayerController : MonoBehaviour
     {
         if (_view.IsMine)
         {
-            _horizontal = Input.GetAxisRaw("Horizontal");
-            _moveDirction = new Vector2(_horizontal, 0).normalized * _speed;
+            var horizontal = Input.GetAxisRaw("Horizontal");
+            var moveDirction = new Vector2(horizontal, 0).normalized * _speed;
+            float verticalVelocity = _rb2D.velocity.y;
+            _rb2D.velocity = moveDirction + Vector2.up * verticalVelocity;
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Fire3"))   //自機の形を変更する
             {
                 ChangeShape();
             }
+
+            if (Input.GetButtonDown("Jump") && _isJump)
+            {
+                _rb2D.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+            }
         }
-       
+
     }
 
-    void FixedUpdate()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_rb2D != null)
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            if (_moveDirction != Vector2.zero)
-            {
-                _rb2D.velocity = _moveDirction;
-            }
-            else
-            {
-                _rb2D.velocity = Vector2.zero;
-            }
+            _isJump = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            _isJump = false;
         }
     }
 
