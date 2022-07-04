@@ -5,11 +5,12 @@ using Photon.Pun;
 
 public class GoalButton : MonoBehaviour
 {
-    [SerializeField] GoalButton goalButton = default;
+    [SerializeField, Tooltip("同時に開く為のボタン")] GoalButton goalButton = default;
     [SerializeField, Tooltip("ボタンが押された時に開くドア")] GoalWall _goalGimmick = default;
     [SerializeField, Tooltip("反応するプレイヤー")] Player _player = default;
 
     PhotonView _view => GetComponent<PhotonView>();
+    /// <summary>プレイヤーがボタンに触れているかどうか </summary>
     bool _isHit = false;
     public bool IsHit { get => _isHit; set => _isHit = value; }
 
@@ -45,6 +46,7 @@ public class GoalButton : MonoBehaviour
         }
     }
 
+    /// <summary>goalの扉を開ける </summary>
     [PunRPC]
     void SetIsHitTrue()
     {

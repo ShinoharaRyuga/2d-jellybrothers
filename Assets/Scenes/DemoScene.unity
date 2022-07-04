@@ -2077,7 +2077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gimmickObject: {fileID: 472161964}
   _player: 0
-  _isActive: 0
+  _isActive: 1
 --- !u!1 &1067297713
 GameObject:
   m_ObjectHideFlags: 0
