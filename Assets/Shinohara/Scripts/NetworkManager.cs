@@ -9,6 +9,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] string _player1PrefabName = "Player1";
     [SerializeField] string _player2PrefabName = "Player2";
     [SerializeField] Transform[] _spwanPoint = new Transform[2];
+    PlayerController _playerController = default;
+    public PlayerController PlayerController { get => _playerController; }
 
     private void Awake()
     {
@@ -44,17 +46,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
 
         var index = PhotonNetwork.LocalPlayer.ActorNumber - 1;
-        PlayerController player = null;
-     
+
         if (index == 0)
         {
-            player = PhotonNetwork.Instantiate(_player1PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
-            player.name = "Player1";
+            _playerController = PhotonNetwork.Instantiate(_player1PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
+            _playerController.name = "Player1";
         }
         else if (index == 1)
         {
-            player = PhotonNetwork.Instantiate(_player2PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
-            player.name = "Player2";
+            _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
+            _playerController.name = "Player2";
         }
     }
 
