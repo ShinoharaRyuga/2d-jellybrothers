@@ -51,11 +51,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             _playerController = PhotonNetwork.Instantiate(_player1PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player1";
+            _playerController.PlayerNumber = index;
         }
         else if (index == 1)
         {
             _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player2";
+            _playerController.PlayerNumber = index;
         }
     }
 

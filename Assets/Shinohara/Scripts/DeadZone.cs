@@ -1,8 +1,10 @@
 using UnityEngine;
 
+/// <summary>プレイヤーを死亡させる </summary>
 public class DeadZone : MonoBehaviour
 {
-    [SerializeField] RespawnManager _respawnManager;
+    [SerializeField, Tooltip("リスポーンさせる為に取得")] RespawnManager _respawnManager;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
