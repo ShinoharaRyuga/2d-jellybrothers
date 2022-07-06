@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb240349aa1957d4c92e5c21e42befa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _respawnManager: {fileID: 0}
+  _respawnManager: {fileID: 906405413}
 --- !u!1 &45253662
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb240349aa1957d4c92e5c21e42befa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _respawnManager: {fileID: 0}
+  _respawnManager: {fileID: 906405413}
 --- !u!1 &139692289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,6 +1869,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &906405412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7427880626346119382, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+  m_PrefabInstance: {fileID: 7427880625808603148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &906405413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+  m_PrefabInstance: {fileID: 7427880625808603148}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906405412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d44081153f62d4d8b3aff40a28893e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &906405415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906405412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &936375394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb240349aa1957d4c92e5c21e42befa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _respawnManager: {fileID: 0}
+  _respawnManager: {fileID: 906405413}
 --- !u!1 &1575430067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,7 +3094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb240349aa1957d4c92e5c21e42befa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _respawnManager: {fileID: 0}
+  _respawnManager: {fileID: 906405413}
 --- !u!1 &1783807408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,6 +3897,14 @@ PrefabInstance:
       propertyPath: _startPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1986775199}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[0]._respawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[1]._respawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
       propertyPath: _respawnPoints.Array.data[0]._respawnPoints.Array.data[0]
       value: 

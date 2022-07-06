@@ -12,12 +12,7 @@ public class RespawnManager : MonoBehaviour
     [SerializeField, Tooltip("プレイヤーのリスポーンポイント")] List<InspectorRespawnPoints> _respawnPoints = new List<InspectorRespawnPoints>();
     /// <summary>最新のリスポーンポイントの添え字 </summary>
     int _currentRespawnIndex = -1;
-
-    /// <summary>リスポーンポイントを更新する</summary>
-    public void UpdateRespawnPoint()
-    {
-        _currentRespawnIndex++;
-    }
+    PhotonView _view => GetComponent<PhotonView>();
 
     /// <summary>
     /// プレイヤー死亡時に呼び出されるRaiseEvent
@@ -42,6 +37,20 @@ public class RespawnManager : MonoBehaviour
         SendOptions sendOptions = new SendOptions();
         PhotonNetwork.RaiseEvent(eventCode, respawnPoints, raiseEventOptions, sendOptions);
     }
+
+    /// <summary>更新したリスポーンポイントを同期する </summary>
+    public void SyncRespawnPoint()
+    {
+        _view.RPC("UpdateRespawnPoint", RpcTarget.All);
+    }
+
+    /// <summary>リスポーンポイントを更新する</summary>
+    [PunRPC]
+    public void UpdateRespawnPoint()
+    {
+        _currentRespawnIndex++;
+    }
+
 }
 
 /// <summary>インスペクターに配列型のリストを表示する為のクラス </summary>
