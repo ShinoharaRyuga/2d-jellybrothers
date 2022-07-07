@@ -16,14 +16,6 @@ public class GoalButton : MonoBehaviour
 
     public PhotonView View { get => _view; }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log($"{_isHit} {goalButton.IsHit}");
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == _player.ToString())
