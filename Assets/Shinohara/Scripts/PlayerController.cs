@@ -1,15 +1,31 @@
 using System;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;   
+using ExitGames.Client.Photon;  
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     [SerializeField, Tooltip("移動速度")] float _speed = 3f;
     [SerializeField, Tooltip("ジャンプ力")] float _jumpPower = 3f;
     [SerializeField, Tooltip("現在の形")] Shape _currentShape = Shape.Cube;
     Rigidbody2D _rb2D = default;
+    /// <summary>何番目のプレイヤーなのか 0=player1 1=player2</summary>
+    int _playerNumber = 0;
     PhotonView _view => GetComponent<PhotonView>();
+
+    public int PlayerNumber 
+    {
+        get { return _playerNumber; }
+        set
+        {
+            if (0 <= value)
+            {
+                _playerNumber = value;
+            }
+        }
+    }
 
     bool _isJump = true;
     void Start()
@@ -77,6 +93,21 @@ public class PlayerController : MonoBehaviour
             case Shape.Horizontal:
                 transform.localScale = new Vector3(3, 1, 1);
                 break;
+        }
+    }
+
+    /// <summary>
+    /// RespawnManager.Respawn()が起こしたイベントを受け取る
+    /// playerNumberを使って決められた位置にリスポーンする
+    /// </summary>
+    /// <param name="photonEvent">リスポーンポイント</param>
+    public void OnEvent(EventData photonEvent)
+    {
+        if ((int)photonEvent.Code < 200 && _view.IsMine)
+        {
+            var data = photonEvent.CustomData;
+            var respawnPoints = (Vector3[])data;
+            transform.position = respawnPoints[_playerNumber];
         }
     }
 
