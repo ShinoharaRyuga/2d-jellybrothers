@@ -8,7 +8,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] string _player1PrefabName = "Player1";
     [SerializeField] string _player2PrefabName = "Player2";
-    [SerializeField] Transform[] _spwanPoint = new Transform[2];
+    [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] Transform[] _startSpwanPoint = new Transform[2];
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
 
@@ -49,13 +49,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         if (index == 0)
         {
-            _playerController = PhotonNetwork.Instantiate(_player1PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
+            _playerController = PhotonNetwork.Instantiate(_player1PrefabName, _startSpwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player1";
             _playerController.PlayerNumber = index;
         }
         else if (index == 1)
         {
-            _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _spwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
+            _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _startSpwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player2";
             _playerController.PlayerNumber = index;
         }
