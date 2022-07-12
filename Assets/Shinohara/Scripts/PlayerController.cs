@@ -4,11 +4,12 @@ using Photon.Pun;
 using Photon.Realtime;   
 using ExitGames.Client.Photon;  
 
+/// <summary>自機を操作する為のクラス </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
-    [SerializeField, Tooltip("移動速度")] float _speed = 3f;
-    [SerializeField, Tooltip("ジャンプ力")] float _jumpPower = 3f;
+    [SerializeField, Header("移動速度")] float _speed = 3f;
+    [SerializeField, Header("ジャンプ力")] float _jumpPower = 3f;
     [SerializeField, Tooltip("現在の形")] Shape _currentShape = Shape.Cube;
     Rigidbody2D _rb2D = default;
     /// <summary>何番目のプレイヤーなのか 0=player1 1=player2</summary>

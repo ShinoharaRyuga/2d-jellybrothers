@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gimmick: {fileID: 0}
   _player: 0
-  _button1Renderer: {fileID: 4014536703522335150}
-  _button2Renderer: {fileID: 4014536704775446491}
+  _b1: {fileID: 4014536703522335150}
+  _b2: {fileID: 4014536704775446491}
 --- !u!1 &4014536703522335145
 GameObject:
   m_ObjectHideFlags: 0

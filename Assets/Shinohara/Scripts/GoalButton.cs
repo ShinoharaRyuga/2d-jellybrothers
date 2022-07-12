@@ -1,30 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+/// <summary>ゴール直前に存在する扉を開けるためのクラス </summary>
 public class GoalButton : MonoBehaviour
 {
-    [SerializeField, Tooltip("同時に開く為のボタン")] GoalButton goalButton = default;
-    [SerializeField, Tooltip("ボタンが押された時に開くドア")] GoalWall _goalGimmick = default;
-    [SerializeField, Tooltip("反応するプレイヤー")] Player _player = default;
-
-    PhotonView _view => GetComponent<PhotonView>();
+    [SerializeField, Header("ボタンが押された時に開くドア")] GoalWall _goalGimmick = default;
+    [SerializeField, Header("反応するプレイヤー")] Player _player = default;
+    [SerializeField, Tooltip("同時に開く為のボタン")] GoalButton _partnerButton = default;
     /// <summary>プレイヤーがボタンに触れているかどうか </summary>
     bool _isHit = false;
-    public bool IsHit { get => _isHit; set => _isHit = value; }
-
+    PhotonView _view => GetComponent<PhotonView>();
     public PhotonView View { get => _view; }
+    /// <summary>プレイヤーがボタンに触れているかどうか </summary>
+    public bool IsHit { get => _isHit; set => _isHit = value; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //プレイヤーがボタンを押した
         if (collision.gameObject.name == _player.ToString())
         {
             _view.RPC("SetIsHitTrue", RpcTarget.All);
 
-            if (goalButton.IsHit && _isHit)
+            if (_partnerButton.IsHit && _isHit) //同時にボタンが押されていたら扉を開ける
             {
-                Debug.Log("クリア");
                 _goalGimmick.View.RPC("SetActiveFalse", RpcTarget.All);
             }
         }
@@ -32,6 +30,7 @@ public class GoalButton : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //プレイヤーがボタンから離れた
         if (collision.gameObject.name == _player.ToString())
         {
             _view.RPC("SetIsHitFalse", RpcTarget.All);

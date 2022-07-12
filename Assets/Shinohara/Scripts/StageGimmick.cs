@@ -14,7 +14,7 @@ public class StageGimmick : MonoBehaviour
     ///　<para>false = ギミックオブジェクトを表示にする　例　足場を出現させる</para>
     /// </summary>
     [SerializeField, Header("ゲーム開始時のオブジェクト状態")] bool _isStartActive = true;
-    [SerializeField, Header("扉の色")] DoorColor _doorColor = DoorColor.Red;
+    [SerializeField, Header("オブジェクトの色")] ObjectColor _objectColor = ObjectColor.Red;
     /// <summary>現在のオブジェクト状態 </summary>
     bool _isCurrentActive = true;
     PhotonView _view => GetComponent<PhotonView>();
@@ -40,15 +40,20 @@ public class StageGimmick : MonoBehaviour
             _isCurrentActive = false;
         }
 
-        //ドアの色を変更する
-        if (_doorColor == DoorColor.Red)
+        //オブジェクトの色を変更する
+        switch (_objectColor)
         {
-            _spriteRenderer.color = Color.red;
+            case ObjectColor.Red:
+                _spriteRenderer.color = Color.red;
+                break;
+            case ObjectColor.Blue:
+                _spriteRenderer.color = Color.blue;
+                break;
+            case ObjectColor.White:
+                _spriteRenderer.color = Color.white;
+                break;
         }
-        else if (_doorColor == DoorColor.Blue)
-        {
-            _spriteRenderer.color= Color.blue;
-        }
+
     }
 
     /// <summary>
@@ -92,9 +97,10 @@ public class StageGimmick : MonoBehaviour
         _isCurrentActive = true;
     }
 
-    public enum DoorColor
+    public enum ObjectColor
     {
         Red,
         Blue,
+        White,
     }
 }

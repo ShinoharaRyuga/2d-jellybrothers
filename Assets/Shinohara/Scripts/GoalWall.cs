@@ -5,6 +5,8 @@ using UnityEngine;
 public class GoalWall : MonoBehaviour
 {
     public PhotonView View => GetComponent<PhotonView>();
+
+    /// <summary>”à‚ðŠJ‚¯‚é </summary>
     [PunRPC]
     public  void SetActiveFalse()
     {
