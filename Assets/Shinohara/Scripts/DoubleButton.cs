@@ -1,36 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoubleButton : MonoBehaviour
 {
-    [SerializeField] DoubleButton button = default;
-    [SerializeField] FloorGimmick gimmick = default;
+    [SerializeField] StageGimmick gimmick = default;
     [SerializeField, Tooltip("反応するプレイヤー")] Player _player = default;
-    bool _isHit = false;
-
-    public bool IsHit { get => _isHit; set => _isHit = value; }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == _player.ToString())
-        {
-            _isHit = true;
-
-            if (button.IsHit && _isHit)
-            {
-                Debug.Log("成功");
-                gimmick.View.RPC("SetActiveTrue", Photon.Pun.RpcTarget.All);
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == _player.ToString())
-        {
-            _isHit = false;
-            gimmick.View.RPC("SetActiveFalse", Photon.Pun.RpcTarget.All);
-        }
-    }
+    [SerializeField] SpriteRenderer _button1Renderer = default;
+    [SerializeField] SpriteRenderer _button2Renderer = default;
+    public StageGimmick Gimmick { get => gimmick; }
+    public Player Player { get => _player; }
+  
+    //private void OnValidate()
+    //{
+    //    //反応するプレイヤーによってボタンの色を変更する
+    //    if (_player == Player.Player1)
+    //    {
+    //        _button1Renderer.color = Color.red;
+    //        _button1Renderer.color = Color.red;
+    //    }
+    //    else
+    //    {
+    //        _button2Renderer.color = Color.blue;
+    //        _button2Renderer.color = Color.blue;
+    //    }
+    //}
 }
