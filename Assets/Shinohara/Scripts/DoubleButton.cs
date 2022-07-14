@@ -1,36 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 同時押しボタンのギミックを設定をする 
+/// PartnerButton.csが参照している
+/// </summary>
 public class DoubleButton : MonoBehaviour
 {
-    [SerializeField] DoubleButton button = default;
-    [SerializeField] FloorGimmick gimmick = default;
-    [SerializeField, Tooltip("反応するプレイヤー")] Player _player = default;
-    bool _isHit = false;
+    [SerializeField, Header("動作するギミック")] StageGimmick gimmick = default;
+    [SerializeField, Header("反応するプレイヤー")] Player _player = default;
 
-    public bool IsHit { get => _isHit; set => _isHit = value; }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == _player.ToString())
-        {
-            _isHit = true;
-
-            if (button.IsHit && _isHit)
-            {
-                Debug.Log("成功");
-                gimmick.View.RPC("SetActiveTrue", Photon.Pun.RpcTarget.All);
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == _player.ToString())
-        {
-            _isHit = false;
-            gimmick.View.RPC("SetActiveFalse", Photon.Pun.RpcTarget.All);
-        }
-    }
+    public StageGimmick Gimmick { get => gimmick; }
+    public Player Player { get => _player; }
 }

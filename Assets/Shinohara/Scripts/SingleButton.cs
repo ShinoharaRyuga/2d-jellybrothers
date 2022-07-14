@@ -1,39 +1,44 @@
 using UnityEngine;
 
+/// <summary>一つのボタンでドアを開けることが出来るボタン </summary>
 public class SingleButton : MonoBehaviour
 {
-    [SerializeField, Tooltip("ボタンが押された時に開くドア")] EnvironmentGimmickBase _gimmickObject = default;
-    [SerializeField, Tooltip("反応するプレイヤー")] Player _player = default;
-    [SerializeField, Tooltip("開始時のアクティブ状態")] bool _isActive = true;
+    [SerializeField, Header("ボタンが押された時に動作するギミック")] StageGimmick _gimmickObject = default;
+    [SerializeField, Header("反応するプレイヤー")] Player _player = default;
+
+    SpriteRenderer _spriteRenderer => GetComponent<SpriteRenderer>();
+
+    private void OnValidate()
+    {
+        //反応するプレイヤーによってボタンの色を変更する
+        if (_player == Player.Player1)
+        {
+            _spriteRenderer.color = Color.red;
+        }
+        else
+        {
+            _spriteRenderer.color = Color.blue;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == _player.ToString())
-        {
-            if (_isActive)
-            {
-                _gimmickObject.View.RPC("SetActiveFalse", Photon.Pun.RpcTarget.All);
-            }
-            else
-            {
-                _gimmickObject.View.RPC("SetActiveTrue", Photon.Pun.RpcTarget.All);
-            }
-           
-        }
+        //ボタンが押された
+        SyncGimmick(collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //プレイヤーがボタンから離れた
+        SyncGimmick(collision);
+    }
+
+    /// <summary> ギミックオブジェクトの状態を同期する  </summary>
+    void SyncGimmick(Collider2D collision)
+    {
         if (collision.gameObject.name == _player.ToString())
         {
-            if (_isActive)
-            {
-                _gimmickObject.View.RPC("SetActiveTrue", Photon.Pun.RpcTarget.All);
-            }
-            else
-            {
-                _gimmickObject.View.RPC("SetActiveFalse", Photon.Pun.RpcTarget.All);
-            }
+            _gimmickObject.View.RPC("ChangeActive", Photon.Pun.RpcTarget.All);
         }
     }
 }
