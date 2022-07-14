@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField, Tooltip("エネミー自身の番号")] Enemy _enemy = default;
+    [SerializeField, Tooltip("エネミー自身の色")] EnemyColor _enemy = default;
+    [SerializeField, Tooltip("エネミーの移動速度")] float _speed = 2f;
+    /// <summary>エネミーの進む方向</summary>
+    Vector2 direction;
+    protected Rigidbody2D _rb2D = default;
 
-
-    void Start()
+    protected virtual void Awake()
     {
-        
+        _rb2D = GetComponent<Rigidbody2D>();
+        direction = new Vector2(-1, 0);
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        
+        var moveDirction = direction.normalized * _speed;
+        float verticalVelocity = _rb2D.velocity.y;
+        _rb2D.velocity = moveDirction + Vector2.up * verticalVelocity;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_enemy == Enemy.Enemy1)
+        if (_enemy == EnemyColor.RedEnemy)
         {
             if (collision.gameObject.name == Player.Player1.ToString())
             {
@@ -30,7 +36,7 @@ public class EnemyController : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        else if(_enemy == Enemy.Enemy2)
+        else if(_enemy == EnemyColor.BlueEnemy)
         {
             if (collision.gameObject.name == Player.Player2.ToString())
             {
@@ -46,6 +52,12 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(collision.gameObject.tag == "Wall")
+        {
+            transform.Rotate(new Vector2(0, 180));
+            direction *= -1;
+        }
     }
 
     public enum Player
@@ -54,10 +66,11 @@ public class EnemyController : MonoBehaviour
         Player2,
     }
 
-    public enum Enemy
+    public enum EnemyColor
     {
-        Enemy1,
-        Enemy2,
+        RedEnemy,
+        BlueEnemy,
     }
+
 
 }
