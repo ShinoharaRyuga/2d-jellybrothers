@@ -15,9 +15,9 @@
 
 ## Issues・Pull requests
 ・Issuesを作成したらProjectsに追加する  
-・Pull requestsを作成したら該当するIssuesとリンク　↓以下画像 イメージ
+・Pull requests作成時にPull requests, commits, Issuesをひとまとまりにする　↓以下画像 イメージ
 
-![Issues](https://user-images.githubusercontent.com/86392648/178123034-738c7610-015c-489b-8c9f-4ee7663f268f.png)  
+![githubイメージ画像](https://user-images.githubusercontent.com/86392648/178971064-3bb6d023-1e97-45d7-83ba-3d87d4eec8ec.png)
 参考資料
 [Pull requestsをIssuesとリンクさせる](https://tonari-it.com/github-issue-close/)
 
