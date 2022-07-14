@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5781434385442743444}
-  - component: {fileID: 5781434385442743447}
-  - component: {fileID: 5781434385442743446}
   - component: {fileID: 4014536704137010544}
   - component: {fileID: 4014536704137010545}
+  - component: {fileID: 5781434385442743447}
+  - component: {fileID: 5781434385442743446}
   m_Layer: 0
   m_Name: Player1Button
   m_TagString: Untagged
@@ -35,6 +35,42 @@ Transform:
   m_Father: {fileID: 5781434385452363925}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4014536704137010544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781434385442743440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: 0
+  _partnerButton: {fileID: 4014536703351302940}
+--- !u!114 &4014536704137010545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781434385442743440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!212 &5781434385442743447
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -113,43 +149,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4014536704137010544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781434385442743440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalButton: {fileID: 4014536703351302940}
-  _goalGimmick: {fileID: 0}
-  _player: 0
---- !u!114 &4014536704137010545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781434385442743440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &5781434385452363924
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5781434385452363925}
+  - component: {fileID: 2916505193053721378}
   m_Layer: 0
   m_Name: GoalButton
   m_TagString: Untagged
@@ -183,6 +183,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2916505193053721378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781434385452363924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a90da7b235c1ce429b9370b57ad7b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalWall: {fileID: 0}
 --- !u!1 &5781434386210886398
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,10 +205,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5781434386210886399}
-  - component: {fileID: 5781434386210886370}
-  - component: {fileID: 5781434386210886397}
   - component: {fileID: 4014536703351302940}
   - component: {fileID: 4014536703351302941}
+  - component: {fileID: 5781434386210886370}
+  - component: {fileID: 5781434386210886397}
   m_Layer: 0
   m_Name: Player2Button
   m_TagString: Untagged
@@ -218,6 +231,42 @@ Transform:
   m_Father: {fileID: 5781434385452363925}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4014536703351302940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781434386210886398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: 1
+  _partnerButton: {fileID: 4014536704137010544}
+--- !u!114 &4014536703351302941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781434386210886398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!212 &5781434386210886370
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -260,7 +309,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.062930584, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -296,40 +345,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4014536703351302940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781434386210886398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalButton: {fileID: 4014536704137010544}
-  _goalGimmick: {fileID: 0}
-  _player: 1
---- !u!114 &4014536703351302941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781434386210886398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0

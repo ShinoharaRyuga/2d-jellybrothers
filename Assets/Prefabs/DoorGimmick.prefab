@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3048020398311820856}
-  - component: {fileID: 3048020398311820857}
   - component: {fileID: 695345564772838903}
+  - component: {fileID: 3048020398311820857}
   - component: {fileID: 3048020398311820858}
   - component: {fileID: 3048020398311820852}
   m_Layer: 0
@@ -35,6 +35,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &695345564772838903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048020398311820854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9a7a1baba0f11469a6e0bd484f0bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isStartActive: 1
+  _objectColor: 0
 --- !u!114 &3048020398311820857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,20 +71,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &695345564772838903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3048020398311820854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9a7a1baba0f11469a6e0bd484f0bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isStartActive: 1
-  _objectColor: 0
 --- !u!212 &3048020398311820858
 SpriteRenderer:
   m_ObjectHideFlags: 0

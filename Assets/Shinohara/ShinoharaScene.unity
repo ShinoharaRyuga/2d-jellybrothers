@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorGimmick (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3048020398311820854, guid: f3021894de7a645468cb5aa18d0f1fc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3048020398311820856, guid: f3021894de7a645468cb5aa18d0f1fc4, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -537,6 +541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8660484250095499585, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8660484250095499587, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
       propertyPath: _player
       value: 0
@@ -683,7 +691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &355570604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1209,9 +1217,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4014536703512526253, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4014536703522335150, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.009780884
       objectReference: {fileID: 0}
     - target: {fileID: 4014536703522335150, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
       propertyPath: m_Color.g
@@ -1219,11 +1231,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4014536703522335150, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4014536704775446491, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.009780884
       objectReference: {fileID: 0}
     - target: {fileID: 4014536704775446491, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
       propertyPath: m_Color.g
@@ -1231,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4014536704775446491, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5377829215614043448, guid: 82d837654d2f10347aa1c23109aa1c2a, type: 3}
       propertyPath: _player
@@ -1335,6 +1347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8660484250095499585, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8660484250095499587, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
       propertyPath: _gimmickObject
       value: 
@@ -1366,6 +1382,10 @@ PrefabInstance:
     - target: {fileID: 3048020398311820854, guid: f3021894de7a645468cb5aa18d0f1fc4, type: 3}
       propertyPath: m_Name
       value: DoorGimmick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048020398311820854, guid: f3021894de7a645468cb5aa18d0f1fc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3048020398311820856, guid: f3021894de7a645468cb5aa18d0f1fc4, type: 3}
       propertyPath: m_RootOrder
@@ -1626,6 +1646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8660484250095499585, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8660484250095499587, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
       propertyPath: _player
       value: 1
@@ -1838,7 +1862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1858373384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2162,15 +2186,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2787691966508239073, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
       propertyPath: _isStartActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2787691966508239074, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2787691966508239077, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2787691966508239079, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
       propertyPath: m_Name
@@ -2266,6 +2290,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2916505193053721378, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
+      propertyPath: goalWall
+      value: 
+      objectReference: {fileID: 1783807412}
+    - target: {fileID: 4014536703351302940, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
+      propertyPath: _player
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4014536703351302940, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
       propertyPath: _goalGimmick
       value: 
@@ -2286,13 +2318,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoalButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5781434385452363924, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5781434385452363925, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5781434385452363925, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.62
+      value: -0.76
       objectReference: {fileID: 0}
     - target: {fileID: 5781434385452363925, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2328,6 +2364,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5781434385452363925, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781434386210886370, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781434386210886370, guid: 515acb724ddcbfc40b946846117bb90a, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
