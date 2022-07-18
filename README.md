@@ -18,8 +18,33 @@
 ・Pull requests作成時にPull requests, commits, Issuesをひとまとまりにする　↓以下画像 イメージ
 
 ![githubイメージ画像](https://user-images.githubusercontent.com/86392648/178971064-3bb6d023-1e97-45d7-83ba-3d87d4eec8ec.png)
-参考資料
-[Pull requestsをIssuesとリンクさせる](https://tonari-it.com/github-issue-close/)
+参考資料  
+[Pull requestsをIssuesとリンクさせる](https://tonari-it.com/github-issue-close/)  
+[Pull requestでIssueをcloseする方法](https://qumeru.com/magazine/617)
+
+## フォルダについて
+Assetsフォルダの直下に以下フォルダを作成しました。  
+作成したゲームオブジェクトや使用する画像、BGM、SEなどは該当するフォルダに入れて下さい。  
+○○Tmpというプレハブがフォルダに入っていたら削除して下さい。
+
+**・Animations**  
+　アニメーションとアニメーションコントローラーを入れて下さい。  
+
+**・Audios**  
+　Audiosフォルダ直下にBGMとSEを入れるフォルダがあるので該当するフォルダに入れて下さい。
+
+**・Images**  
+　ゲームで使用する画像(スプライト)を入れて下さい。  
+
+**・Prefabs**    
+　ステージギミックなどの**動的生成しない**プレハブを入れて下さい。
+
+**・Resources**  
+　プレイヤーや敵などの**動的生成する**プレハブを入れて下さい。  
+
+**・Scene**  
+　実際にゲームで使用するシーンを入れて下さい。
+
 
 ## 要素案
 [要素案](https://drive.google.com/drive/folders/1EzZpdk03KjzjG029Iuoia5yaIyrEV4Nw)
