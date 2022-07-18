@@ -8,12 +8,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Tooltip("エネミーの移動速度")] float _speed = 2f;
     /// <summary>エネミーの進む方向</summary>
     Vector2 direction;
+    /// <summary>エネミーの向いている向き </summary>
+    Vector2 scale;
     protected Rigidbody2D _rb2D = default;
 
     protected virtual void Awake()
     {
         _rb2D = GetComponent<Rigidbody2D>();
         direction = new Vector2(-1, 0);
+        scale = transform.localScale;
     }
 
     protected virtual void Update()
@@ -55,8 +58,9 @@ public class EnemyController : MonoBehaviour
 
         if(collision.gameObject.tag == "Wall")
         {
-            transform.Rotate(new Vector2(0, 180));
+            scale.x *= -1;
             direction *= -1;
+            transform.localScale = scale;
         }
     }
 
