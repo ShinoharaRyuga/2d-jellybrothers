@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
+# if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 /// <summary>
 /// ベルトコンベア（動く床ギミック）を作成するクラス
@@ -11,9 +13,10 @@ public class CreateBeltConveyor : MonoBehaviour
     [SerializeField, Header("移動速度")] float _moveSpeed = 1f;
     [SerializeField, Header("ベルトコンベアの数(長さ)"), Min(0)] int _beltConveyorNumber = 0;
     [SerializeField, Tooltip("ベルトコンベアのプレハブ")] SetBeltConveyorSpeed _beltConveyor = default;
-    /// <summary>オブジェクトの初期位置を設定する為 </summary>
-    [SerializeField, HideInInspector] Vector2 _startPosition = Vector2.zero;
-    [SerializeField, HideInInspector] Quaternion _startRotation = Quaternion.identity;
+    [SerializeField, HideInInspector] float _startPositionX = 0;
+    [SerializeField, HideInInspector] float _startRotationZ = 0;
+
+    BoxCollider2D _bc2D => GetComponent<BoxCollider2D>();
 
     private void OnValidate()
     {
@@ -21,7 +24,9 @@ public class CreateBeltConveyor : MonoBehaviour
         for (var i = 0; i < transform.childCount; i++)  // 長さを変更する時は一旦長さを０にする
         {
             var belt = transform.GetChild(i).gameObject;
+#if UNITY_EDITOR
             EditorApplication.delayCall += () => DestroyImmediate(belt);
+#endif
         }
 
         var beltConveyors = new Transform[_beltConveyorNumber];
@@ -36,25 +41,25 @@ public class CreateBeltConveyor : MonoBehaviour
             parentPositionX += i;
         }
 
+        if (_beltConveyorNumber % 2 == 0)
+        {
+            _bc2D.offset = new Vector2(0.5f, 0);
+            _bc2D.size = new Vector2(_beltConveyorNumber, 0.5f);
+        }
+        else
+        {
+            _bc2D.offset = Vector2.zero;
+            _bc2D.size = new Vector2(_beltConveyorNumber, 0.5f);
+        }
+
         if (_beltConveyorNumber != 0)   //ピボットの位置を中心に持ってくる
         {
             parentPositionX /= _beltConveyorNumber;
             transform.position = new Vector2(parentPositionX, transform.position.y);
             Array.ForEach(beltConveyors, t => t.SetParent(transform));
         }
-    }
 
-    private void Start()
-    {
-        transform.position = _startPosition;
-    }
-
-    /// <summary>
-    /// 初期位置と回転値を決める
-    /// </summary>
-    public void SetStartPosition()
-    {
-        _startPosition = transform.position;
-        _startRotation = Quaternion.Euler(transform.localEulerAngles);
+        transform.rotation = Quaternion.Euler(0, 0, _startRotationZ);
+        transform.position = new Vector2(_startPositionX, transform.position.y);
     }
 }

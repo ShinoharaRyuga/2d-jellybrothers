@@ -7,13 +7,13 @@ using UnityEngine;
 [CustomEditor(typeof(CreateBeltConveyor))]
 public class BeltConveyorEditor : Editor
 {
-    SerializedProperty _startPositionProperty;
-    SerializedProperty _startRotationProperty;
-   
+    SerializedProperty _startPositionX = default;
+    SerializedProperty _startRotationZ = default;
+
     private void OnEnable()
     {
-        _startPositionProperty = serializedObject.FindProperty("_startPosition");
-        _startRotationProperty = serializedObject.FindProperty("_startRotation");
+        _startPositionX = serializedObject.FindProperty("_startPositionX");
+        _startRotationZ = serializedObject.FindProperty("_startRotationZ");
     }
 
     public override void OnInspectorGUI()
@@ -27,7 +27,9 @@ public class BeltConveyorEditor : Editor
         if (GUILayout.Button("Transform‚Ì’l‚ð•Û‘¶"))
         {
             serializedObject.Update();
-            createBeltConveyor.SetStartPosition();
+            _startPositionX.floatValue = createBeltConveyor.transform.position.x;
+            _startRotationZ.floatValue = createBeltConveyor.transform.localEulerAngles.z;
+            Debug.Log(createBeltConveyor.transform.localEulerAngles.z);
             serializedObject.ApplyModifiedProperties();
             Debug.Log("’l‚ª•Û‘¶‚³‚ê‚Ü‚µ‚½");
         }
