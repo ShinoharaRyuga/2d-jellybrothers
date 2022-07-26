@@ -8,8 +8,9 @@ using ExitGames.Client.Photon;
 /// <summary>リスポーンに関しての処理が書かれているクラス </summary>
 public class RespawnManager : MonoBehaviour
 {
-    [SerializeField, Tooltip("ゲーム開始時のプレイヤー位置")] Transform[] _startPoints = new Transform[2];
-    [SerializeField, Tooltip("プレイヤーのリスポーンポイント")] List<InspectorRespawnPoints> _respawnPoints = new List<InspectorRespawnPoints>();
+    [SerializeField, Header("ゲーム開始時のプレイヤー位置")] Transform[] _startPoints = new Transform[2];
+    [SerializeField, Header("プレイヤーのリスポーンポイント")] List<InspectorRespawnPoints> _respawnPoints = new List<InspectorRespawnPoints>();
+ 
     /// <summary>最新のリスポーンポイントの添え字 </summary>
     int _currentRespawnIndex = -1;
     PhotonView _view => GetComponent<PhotonView>();
@@ -50,7 +51,6 @@ public class RespawnManager : MonoBehaviour
     {
         _currentRespawnIndex++;
     }
-
 }
 
 /// <summary>インスペクターに配列型のリストを表示する為のクラス </summary>

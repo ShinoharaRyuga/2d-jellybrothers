@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     Rigidbody2D _rb2D = default;
     /// <summary>何番目のプレイヤーなのか 0=player1 1=player2</summary>
     int _playerNumber = 0;
+
     bool _isJump = true;
     PhotonView _view => GetComponent<PhotonView>();
 
@@ -106,9 +107,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         if ((int)photonEvent.Code < 200 && _view.IsMine)
         {
+            PhotonNetwork.Destroy(gameObject);  //プレイヤーを再生成する為に削除する
             var data = photonEvent.CustomData;
             var respawnPoints = (Vector3[])data;
-            transform.position = respawnPoints[_playerNumber];
+            var spawnPoint = respawnPoints[_playerNumber]; 
+            NetworkManager.PlayerInstantiate(_playerNumber, spawnPoint);    //プレイヤーを生成する
         }
     }
 

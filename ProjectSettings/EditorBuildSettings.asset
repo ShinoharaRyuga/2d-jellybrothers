@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Shinohara/BeltConveyor.unity
-    guid: 88896f10e20977447a7123871438b077
-  - enabled: 1
     path: Assets/Shinohara/ShinoharaScene.unity
     guid: 0350437f5a29ada4baa458c016f55446
+  - enabled: 1
+    path: Assets/Shinohara/BeltConveyor.unity
+    guid: 88896f10e20977447a7123871438b077
   - enabled: 1
     path: Assets/Scenes/DemoScene.unity
     guid: 8b3dc8e511534534f99c2ccb1569d77d
   - enabled: 1
     path: Assets/Shinohara/WaitScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Shinohara/SpawnScene.unity
+    guid: df56700ffd7ffc340bd8e1672117053f
   m_configObjects: {}

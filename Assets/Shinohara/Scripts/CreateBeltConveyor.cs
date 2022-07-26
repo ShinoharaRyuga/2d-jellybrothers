@@ -45,7 +45,7 @@ public class CreateBeltConveyor : MonoBehaviour
             var pos = new Vector2(i, transform.position.y);
             var belt = Instantiate(_beltConveyor, pos, Quaternion.identity);
             beltConveyors[i] = belt.transform;
-           // beltConveyors[i].position = transform.position + transform.eulerAngles.normalized * parentPositionX * i;
+            // beltConveyors[i].position = transform.position + transform.eulerAngles.normalized * parentPositionX * i;
             belt.Speed = _animationSpeed;
             parentPositionX += i;
         }
@@ -56,7 +56,9 @@ public class CreateBeltConveyor : MonoBehaviour
             transform.position = new Vector2(parentPositionX + 0.5f, transform.position.y);
             Array.ForEach(beltConveyors, t => t.SetParent(transform));
         }
-        
+
+        ReverseDirection();
+
         //当たり判定を変更する
         _bc2D.offset = new Vector2(-0.5f, 0); ;
         _bc2D.size = new Vector2(_beltConveyorNumber, 0.5f);
@@ -95,7 +97,7 @@ public class CreateBeltConveyor : MonoBehaviour
             {
                 rb2D.AddForce(transform.right * ((_moveSpeed - rb2D.velocity.x) * 20), ForceMode2D.Force);
             }
-           
+
         }
     }
 
@@ -105,6 +107,27 @@ public class CreateBeltConveyor : MonoBehaviour
         {
             var rb2D = collision.gameObject.GetComponent<Rigidbody2D>();
             _rb2Ds.Remove(rb2D);
+        }
+    }
+
+    /// <summary>
+    /// 移動方向が反転したら子オブジェクトも反転させる 
+    /// スプライトを反転させる為に行う
+    /// </summary>
+    private void ReverseDirection()
+    {
+        for (var i = 0; i < transform.childCount; i++)
+        {
+            var sr = transform.GetChild(i).GetComponent<SpriteRenderer>();
+
+            if (_isReverse)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
         }
     }
 }
