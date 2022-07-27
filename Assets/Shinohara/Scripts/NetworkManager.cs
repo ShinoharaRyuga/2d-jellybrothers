@@ -41,14 +41,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         if (playerNumber == 0)
         {
             var player1 = PhotonNetwork.Instantiate(_player1Name, spawnPoint, Quaternion.identity).GetComponent<PlayerController>();
-            player1.name = "Player1";
+            player1.name = _player1Name;
             player1.PlayerNumber = playerNumber;
             return player1;
         }
         else if (playerNumber == 1)
         {
             var player2 = PhotonNetwork.Instantiate(_player2Name, spawnPoint, Quaternion.identity).GetComponent<PlayerController>();
-            player2.name = "Player2";
+            player2.name = _player2Name;
             player2.PlayerNumber = playerNumber;
             return player2;
         }
