@@ -8,8 +8,10 @@ using ExitGames.Client.Photon;
 /// <summary>リスポーンに関しての処理が書かれているクラス </summary>
 public class RespawnManager : MonoBehaviour
 {
-    [SerializeField, Tooltip("ゲーム開始時のプレイヤー位置")] Transform[] _startPoints = new Transform[2];
-    [SerializeField, Tooltip("プレイヤーのリスポーンポイント")] List<InspectorRespawnPoints> _respawnPoints = new List<InspectorRespawnPoints>();
+    [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
+    [SerializeField, Header("ゲーム開始時のプレイヤー位置")] Transform[] _startPoints = new Transform[2];
+    [SerializeField, Header("プレイヤーのリスポーンポイント")] List<InspectorRespawnPoints> _respawnPoints = new List<InspectorRespawnPoints>();
+
     /// <summary>最新のリスポーンポイントの添え字 </summary>
     int _currentRespawnIndex = -1;
     PhotonView _view => GetComponent<PhotonView>();
@@ -38,19 +40,18 @@ public class RespawnManager : MonoBehaviour
         PhotonNetwork.RaiseEvent(eventCode, respawnPoints, raiseEventOptions, sendOptions);
     }
 
-    /// <summary>更新したリスポーンポイントを同期する </summary>
-    public void SyncRespawnPoint()
+    /// <summary>リスポーンポイントを更新し同期する </summary>
+    public void SyncRespawnPoint(int respawnPointNumber)
     {
-        _view.RPC("UpdateRespawnPoint", RpcTarget.All);
+        _view.RPC("UpdateRespawnPoint", RpcTarget.All, respawnPointNumber);
     }
 
     /// <summary>リスポーンポイントを更新する</summary>
     [PunRPC]
-    public void UpdateRespawnPoint()
+    public void UpdateRespawnPoint(int respawnPointNumber)
     {
-        _currentRespawnIndex++;
+        _currentRespawnIndex = respawnPointNumber;
     }
-
 }
 
 /// <summary>インスペクターに配列型のリストを表示する為のクラス </summary>
