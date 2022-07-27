@@ -793,6 +793,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _startPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
       propertyPath: _respawnPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -805,7 +809,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 162224935}
     - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _startPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 162224935}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[0]._respawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
       propertyPath: _respawnPoints.Array.data[1]._respawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[2]._respawnPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
@@ -817,11 +833,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1585491108}
     - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[0]._respawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1585491108}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[0]._respawnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1585491108}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
       propertyPath: _respawnPoints.Array.data[1]._respawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 106606503}
     - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
       propertyPath: _respawnPoints.Array.data[1]._respawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1006843901}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[2]._respawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 106606503}
+    - target: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: _respawnPoints.Array.data[2]._respawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1006843901}
     - target: {fileID: 7427880626346119382, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}

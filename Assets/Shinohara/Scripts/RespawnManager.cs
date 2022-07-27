@@ -8,20 +8,13 @@ using ExitGames.Client.Photon;
 /// <summary>リスポーンに関しての処理が書かれているクラス </summary>
 public class RespawnManager : MonoBehaviour
 {
+    [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のプレイヤー位置")] Transform[] _startPoints = new Transform[2];
     [SerializeField, Header("プレイヤーのリスポーンポイント")] List<InspectorRespawnPoints> _respawnPoints = new List<InspectorRespawnPoints>();
 
     /// <summary>最新のリスポーンポイントの添え字 </summary>
     int _currentRespawnIndex = -1;
     PhotonView _view => GetComponent<PhotonView>();
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Debug.Log(_currentRespawnIndex);
-        }
-    }
 
     /// <summary>
     /// プレイヤー死亡時に呼び出されるRaiseEvent

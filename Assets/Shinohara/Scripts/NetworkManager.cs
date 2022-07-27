@@ -8,6 +8,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] string _player1PrefabName = "Player1";
     [SerializeField] string _player2PrefabName = "Player2";
+    [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] Transform[] _startSpwanPoint = new Transform[2];
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
