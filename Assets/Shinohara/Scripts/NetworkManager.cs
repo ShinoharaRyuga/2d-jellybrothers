@@ -10,6 +10,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] string _player2PrefabName = "Player2";
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] Transform[] _startSpwanPoint = new Transform[2];
+    [SerializeField] CameraTarget _cameraTarget = default;
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
 
@@ -94,6 +95,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             _playerController.name = "Player2";
             _playerController.PlayerNumber = index;
         }
+
+        _cameraTarget.GetTarget();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -113,6 +116,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("ルームを作成");
+    }
+
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        _cameraTarget.GetTarget();
     }
 
     /// <summary> サーバーに接続する</summary>
