@@ -2,7 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 
 
-/// <summary>各ギミックの表示・非表示を変更する </summary>
+/// <summary>扉・床・足場ギミックの表示・非表示を変更する </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 public class StageGimmick : MonoBehaviour
 {

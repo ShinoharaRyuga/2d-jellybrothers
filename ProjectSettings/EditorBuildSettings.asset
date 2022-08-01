@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Shinohara/ElevatorGimmickScene.unity
+    guid: 1bdb2c10496661345853a6c2aa4a26f8
   - enabled: 0
     path: Assets/Shinohara/ShinoharaScene.unity
     guid: 0350437f5a29ada4baa458c016f55446
@@ -12,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScene.unity
     guid: 8b3dc8e511534534f99c2ccb1569d77d
   - enabled: 0
-    path: Assets/Scenes/WaitScene.unity
+    path: Assets/Shinohara/WaitScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Honda/TestScene.unity
     guid: d7691bac74763e448a87ba19465d69e0
   m_configObjects: {}
