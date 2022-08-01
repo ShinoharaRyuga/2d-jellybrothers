@@ -1,29 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using UnityEngine.UI;
 
 namespace Cinemachine
 {
     public class CameraTarget : MonoBehaviour
     {
         CinemachineTargetGroup cinemachineTargetGroup;
-        [SerializeField]GameObject[] targets = new GameObject[2];
+        [SerializeField]GameObject[] targets;
+        [SerializeField] Text text;
+
         void Start()
         {
+            targets = new GameObject[2];
             cinemachineTargetGroup = GetComponent<CinemachineTargetGroup>();
             //デバック用
-            //GetTarget();
+            GetTarget();
         }
 
-        //ルーム内のPlayerを取得してカメラに映すための関数
+        /// <summary>
+        /// ルーム内のPlayerを取得してカメラに映すための関数
+        /// </summary>
         public void GetTarget()
         {
             targets = GameObject.FindGameObjectsWithTag("Player");
-            foreach(var t in targets)
+            foreach (var t in targets)
             {
                 cinemachineTargetGroup.AddMember(t.transform, 1, 1);
             }
         }
+
     }
 }
