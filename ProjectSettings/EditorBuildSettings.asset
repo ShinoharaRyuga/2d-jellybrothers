@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Honda/TestScene.unity
     guid: d7691bac74763e448a87ba19465d69e0
+  - enabled: 0
+    path: Assets/Honda/Stage1.unity
+    guid: 0ba1484ab4f6ce54db46d615d5099595
   m_configObjects: {}
