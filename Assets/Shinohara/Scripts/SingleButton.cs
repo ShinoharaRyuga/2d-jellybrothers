@@ -1,6 +1,6 @@
 using UnityEngine;
 
-/// <summary>一つのボタンでドアを開けることが出来るボタン </summary>
+/// <summary>ギミック動作させることが出来るボタン </summary>
 public class SingleButton : MonoBehaviour
 {
     [SerializeField, Header("ボタンが押された時に動作するギミック")] StageGimmick _gimmickObject = default;
