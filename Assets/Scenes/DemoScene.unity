@@ -265,9 +265,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player1PrefabName: Player1
   _player2PrefabName: Player2
-  _spwanPoint:
-  - {fileID: 1520385322}
+  _startSpwanPoint:
   - {fileID: 1478961115}
+  - {fileID: 1520385322}
 --- !u!4 &25437666
 Transform:
   m_ObjectHideFlags: 0
@@ -407,7 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6423bffae0bff74ab877e4f0dfb5cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1243777727}
   gimmick: {fileID: 446405183}
   _player: 1
 --- !u!1 &303178403
@@ -1833,9 +1832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalButton: {fileID: 2074652935}
-  _goalGimmick: {fileID: 564954991}
   _player: 0
+  _partnerButton: {fileID: 0}
 --- !u!61 &933616269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2077,7 +2075,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gimmickObject: {fileID: 472161964}
   _player: 0
-  _isActive: 1
 --- !u!1 &1067297713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,7 +2284,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -16
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.0070848465, g: 0, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2352,7 +2349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gimmickObject: {fileID: 464346452}
   _player: 1
-  _isActive: 1
 --- !u!1 &1243777722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,7 +2473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6423bffae0bff74ab877e4f0dfb5cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 281707232}
   gimmick: {fileID: 446405183}
   _player: 1
 --- !u!1 &1306385043
@@ -3304,9 +3299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalButton: {fileID: 933616267}
-  _goalGimmick: {fileID: 564954991}
   _player: 1
+  _partnerButton: {fileID: 0}
 --- !u!61 &2074652937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3375,7 +3369,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.0070848465, g: 0, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

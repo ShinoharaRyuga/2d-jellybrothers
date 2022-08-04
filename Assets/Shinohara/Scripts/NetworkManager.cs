@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -10,7 +13,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] string _player2PrefabName = "Player2";
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] Transform[] _startSpwanPoint = new Transform[2];
-    [SerializeField] CameraTarget _cameraTarget = default;
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
 
@@ -21,7 +23,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        PhotonNetwork.AutomaticallySyncScene = false;
+        PhotonNetwork.AutomaticallySyncScene = true;
+        SceneManager.sceneLoaded += GameSceneLoad;
         _player1Name = _player1PrefabName;
         _player2Name = _player2PrefabName;
     }
@@ -29,6 +32,25 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void Start()
     {
         Connect();
+    }
+
+    public void GameSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "WaitingRoomScene")
+        {
+            if (_playerController.PlayerNumber == 0)
+            {
+                _playerController = PhotonNetwork.Instantiate(_player1PrefabName, _startSpwanPoint[_playerController.PlayerNumber].position, Quaternion.identity).GetComponent<PlayerController>();
+                _playerController.name = "Player1";
+                _playerController.PlayerNumber = _playerController.PlayerNumber;
+            }
+            else if (_playerController.PlayerNumber == 1)
+            {
+                _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _startSpwanPoint[_playerController.PlayerNumber].position, Quaternion.identity).GetComponent<PlayerController>();
+                _playerController.name = "Player2";
+                _playerController.PlayerNumber = _playerController.PlayerNumber;
+            }
+        }
     }
 
     /// <summary>
@@ -75,12 +97,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("ルームに入室");
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber > PhotonNetwork.CurrentRoom.MaxPlayers - 1)
-        {
-            Debug.Log("人数が集まりました　ルームを閉じます");
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-        }
-
         var index = PhotonNetwork.LocalPlayer.ActorNumber - 1;
 
         if (index == 0)
@@ -95,8 +111,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             _playerController.name = "Player2";
             _playerController.PlayerNumber = index;
         }
-
-        _cameraTarget.GetTarget();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -120,7 +134,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
-        _cameraTarget.GetTarget();
+        Debug.Log("他のプレイヤーが参加しました。");
+        //Debug.Log(PhotonNetwork.IsMasterClient);
+        //Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
+        //Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers - 1);
+        if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
+        {
+            StartCoroutine(TransitionGameScene());
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+
     }
 
     /// <summary> サーバーに接続する</summary>
@@ -131,5 +154,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("サーバーに接続");
             PhotonNetwork.ConnectUsingSettings();
         }
+    }
+
+    IEnumerator TransitionGameScene()
+    {
+        yield return new WaitForSeconds(2);
+        Debug.Log("遷移する");
+        PhotonNetwork.LoadLevel("DemoScene");
     }
 }
