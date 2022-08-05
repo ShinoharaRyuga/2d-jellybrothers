@@ -24,7 +24,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        SceneManager.sceneLoaded += GameSceneLoad;
         _player1Name = _player1PrefabName;
         _player2Name = _player2PrefabName;
     }
@@ -32,25 +31,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void Start()
     {
         Connect();
-    }
-
-    public void GameSceneLoad(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name != "WaitingRoomScene")
-        {
-            if (_playerController.PlayerNumber == 0)
-            {
-                _playerController = PhotonNetwork.Instantiate(_player1PrefabName, _startSpwanPoint[_playerController.PlayerNumber].position, Quaternion.identity).GetComponent<PlayerController>();
-                _playerController.name = "Player1";
-                _playerController.PlayerNumber = _playerController.PlayerNumber;
-            }
-            else if (_playerController.PlayerNumber == 1)
-            {
-                _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _startSpwanPoint[_playerController.PlayerNumber].position, Quaternion.identity).GetComponent<PlayerController>();
-                _playerController.name = "Player2";
-                _playerController.PlayerNumber = _playerController.PlayerNumber;
-            }
-        }
     }
 
     /// <summary>
@@ -111,6 +91,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             _playerController.name = "Player2";
             _playerController.PlayerNumber = index;
         }
+
+        PlayerData.Instance.PlayerController = _playerController;
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -135,15 +117,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
         Debug.Log("他のプレイヤーが参加しました。");
-        //Debug.Log(PhotonNetwork.IsMasterClient);
-        //Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
-        //Debug.Log(PhotonNetwork.CurrentRoom.MaxPlayers - 1);
+     
         if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
         {
             StartCoroutine(TransitionGameScene());
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
-
     }
 
     /// <summary> サーバーに接続する</summary>
