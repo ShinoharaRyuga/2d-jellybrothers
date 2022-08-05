@@ -11,9 +11,10 @@ public class LiftButton : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _liftGimmick.View.RPC("LiftMove", RpcTarget.All, Time.deltaTime);
+            _liftGimmick.View.RPC(nameof(LiftGimmick.LiftMove), RpcTarget.All, Time.deltaTime);
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
