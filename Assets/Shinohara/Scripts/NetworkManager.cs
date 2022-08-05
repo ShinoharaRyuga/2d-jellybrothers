@@ -13,6 +13,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] string _player2PrefabName = "Player2";
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] Transform[] _startSpwanPoint = new Transform[2];
+    [Tooltip("チェック入れないと自動的にシーン遷移します")]
+    [SerializeField, Header("デバッグ時はチェック入れて下さい")] bool _debugMode = false;
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
 
@@ -117,11 +119,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
         Debug.Log("他のプレイヤーが参加しました。");
-     
-        if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
+
+        if (!_debugMode)
         {
-            StartCoroutine(TransitionGameScene());
-            PhotonNetwork.CurrentRoom.IsOpen = false;
+            if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
+            {
+                StartCoroutine(TransitionGameScene());
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+            }
         }
     }
 
