@@ -45,6 +45,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         if (_view.IsMine && _isMove)
         {
             var horizontal = Input.GetAxisRaw("Horizontal");
+            if(horizontal > 0)
+            {
+                gameObject.transform.eulerAngles = new Vector2(0, 0);
+
+            }
+            else if(horizontal < 0)
+            {
+                gameObject.transform.eulerAngles = new Vector2(0, 180);
+            }
             var moveDirction = new Vector2(horizontal, 0).normalized * _speed;
             float verticalVelocity = _rb2D.velocity.y;
             _rb2D.velocity = moveDirction + Vector2.up * verticalVelocity;
