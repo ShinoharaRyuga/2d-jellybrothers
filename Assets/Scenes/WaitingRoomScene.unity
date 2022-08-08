@@ -900,6 +900,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7540238801163334465, guid: ae37d30c4f7cc4e49add2c2a450be269, type: 3}
+      propertyPath: _debugMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540238801163334465, guid: ae37d30c4f7cc4e49add2c2a450be269, type: 3}
       propertyPath: _startSpwanPoint.Array.data[0]
       value: 
       objectReference: {fileID: 340878962}
