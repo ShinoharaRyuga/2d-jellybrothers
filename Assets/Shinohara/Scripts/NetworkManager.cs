@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -10,6 +13,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] string _player2PrefabName = "Player2";
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] Transform[] _startSpwanPoint = new Transform[2];
+    [Tooltip("チェック入れないと自動的にシーン遷移します")]
+    [SerializeField, Header("デバッグ時はチェック入れて下さい")] bool _debugMode = false;
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
 
@@ -20,7 +25,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        PhotonNetwork.AutomaticallySyncScene = false;
+        PhotonNetwork.AutomaticallySyncScene = true;
         _player1Name = _player1PrefabName;
         _player2Name = _player2PrefabName;
     }
@@ -74,12 +79,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("ルームに入室");
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber > PhotonNetwork.CurrentRoom.MaxPlayers - 1)
-        {
-            Debug.Log("人数が集まりました　ルームを閉じます");
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-        }
-
         var index = PhotonNetwork.LocalPlayer.ActorNumber - 1;
 
         if (index == 0)
@@ -94,6 +93,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             _playerController.name = "Player2";
             _playerController.PlayerNumber = index;
         }
+
+        PlayerData.Instance.PlayerController = _playerController;
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -115,6 +116,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("ルームを作成");
     }
 
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        Debug.Log("他のプレイヤーが参加しました。");
+
+        if (!_debugMode)
+        {
+            if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
+            {
+                StartCoroutine(TransitionGameScene());
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+            }
+        }
+    }
+
     /// <summary> サーバーに接続する</summary>
     void Connect()
     {
@@ -123,5 +138,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("サーバーに接続");
             PhotonNetwork.ConnectUsingSettings();
         }
+    }
+
+    IEnumerator TransitionGameScene()
+    {
+        yield return new WaitForSeconds(2);
+        Debug.Log("遷移する");
+        PhotonNetwork.LoadLevel("DemoScene");
     }
 }

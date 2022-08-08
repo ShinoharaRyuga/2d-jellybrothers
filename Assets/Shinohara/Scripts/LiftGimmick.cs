@@ -44,7 +44,7 @@ public class LiftGimmick : MonoBehaviour
     /// </summary>
     /// <param name="deltaTime">Time.deltaTime</param>
     [PunRPC]
-    void LiftMove(float deltaTime)
+    public void LiftMove(float deltaTime)
     {
         if (!_isArrival)
         {

@@ -27,18 +27,7 @@ public class StageGimmick : MonoBehaviour
     private void OnValidate()
     {
         //ゲーム開始時のギミック状態を変更する
-        if (_isStartActive)
-        {
-            _bc2D.enabled = true;
-            _spriteRenderer.enabled = true;
-            _isCurrentActive = true;
-        }
-        else
-        {
-            _bc2D.enabled = false;
-            _spriteRenderer.enabled = false;
-            _isCurrentActive = false;
-        }
+        ChangeObjectStauts();
 
         //オブジェクトの色を変更する
         switch (_objectColor)
@@ -54,6 +43,11 @@ public class StageGimmick : MonoBehaviour
                 break;
         }
 
+    }
+
+    private void Start()
+    {
+        ChangeObjectStauts();
     }
 
     /// <summary>
@@ -95,6 +89,23 @@ public class StageGimmick : MonoBehaviour
         _bc2D.enabled = true;
         _spriteRenderer.enabled = true;
         _isCurrentActive = true;
+    }
+
+    /// <summary>オブジェクトの状態を変更する</summary>
+    void ChangeObjectStauts()
+    {
+        if (_isStartActive)
+        {
+            _bc2D.enabled = true;
+            _spriteRenderer.enabled = true;
+            _isCurrentActive = true;
+        }
+        else
+        {
+            _bc2D.enabled = false;
+            _spriteRenderer.enabled = false;
+            _isCurrentActive = false;
+        }
     }
 
     public enum ObjectColor
