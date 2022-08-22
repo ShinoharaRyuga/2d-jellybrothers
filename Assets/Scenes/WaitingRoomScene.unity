@@ -900,6 +900,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7540238801163334465, guid: ae37d30c4f7cc4e49add2c2a450be269, type: 3}
+      propertyPath: _debugMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540238801163334465, guid: ae37d30c4f7cc4e49add2c2a450be269, type: 3}
       propertyPath: _startSpwanPoint.Array.data[0]
       value: 
       objectReference: {fileID: 340878962}
@@ -1668,8 +1672,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30D1\u30FC\u30C8\u30CA\u30FC\u3092\u63A2\u3057\u3066\u3044\u307E\u3059"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ca71834d2e88f144ebe94776cd543204, type: 2}
-  m_sharedMaterial: {fileID: 9142180944433247935, guid: ca71834d2e88f144ebe94776cd543204, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 056fb366ff0b2a44a93baa97989f3474, type: 2}
+  m_sharedMaterial: {fileID: 482060265199841262, guid: 056fb366ff0b2a44a93baa97989f3474, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
