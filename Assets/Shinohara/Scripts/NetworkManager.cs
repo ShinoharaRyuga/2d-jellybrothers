@@ -1,3 +1,4 @@
+using TMPro;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
@@ -9,12 +10,23 @@ using Photon.Realtime;
 /// <summary>ネットワークを管理する </summary>
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] string _player1PrefabName = "Player1";
-    [SerializeField] string _player2PrefabName = "Player2";
+    [SerializeField, HideInInspector] 
+    string _player1PrefabName = "Player1";
+
+    [SerializeField, HideInInspector] 
+    string _player2PrefabName = "Player2";
+
+    [SerializeField, Tooltip("プレイヤーに情報を伝える為のテキスト")] 
+    TMP_Text _informText = default;
+
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
-    [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] Transform[] _startSpwanPoint = new Transform[2];
+    [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] 
+    Transform[] _startSpwanPoint = new Transform[2];
+
     [Tooltip("チェック入れないと自動的にシーン遷移します")]
-    [SerializeField, Header("デバッグ時はチェック入れて下さい")] bool _debugMode = false;
+    [SerializeField, Header("デバッグ時はチェック入れて下さい")] 
+    bool _debugMode = false;
+
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
 
@@ -74,7 +86,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
-    /// <summary>ルームに参加時にプレイヤーを生成する </summary>
+    /// <summary>
+    /// ルームに参加時にプレイヤーを生成する 
+    /// 待機シーンで使用
+    /// </summary>
     public override void OnJoinedRoom()
     {
         Debug.Log("ルームに入室");
@@ -92,11 +107,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _startSpwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player2";
             _playerController.PlayerNumber = index;
+            _informText.text = "プレイヤーが集まりました";
         }
 
         PlayerData.Instance.PlayerController = _playerController;
     }
 
+    /// <summary>参加できるルームがなければ新しくルームを作成する </summary>
+    /// <param name="returnCode"></param>
+    /// <param name="message"></param>
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("ルームに入室出来ませんでした ルームを新しく作成します");
@@ -124,7 +143,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
             {
-                StartCoroutine(TransitionGameScene());
+                _informText.text = "プレイヤーが集まりました";
+                StartCoroutine(TransitionStageSelect());
                 PhotonNetwork.CurrentRoom.IsOpen = false;
             }
         }
@@ -140,10 +160,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
-    IEnumerator TransitionGameScene()
+    /// <summary>ステージ選択画面に遷移する </summary>
+    IEnumerator TransitionStageSelect()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         Debug.Log("遷移する");
-        PhotonNetwork.LoadLevel("DemoScene");
+        PhotonNetwork.LoadLevel("StageSelectScene");
     }
 }
