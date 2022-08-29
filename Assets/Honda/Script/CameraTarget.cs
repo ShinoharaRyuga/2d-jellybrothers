@@ -1,24 +1,33 @@
 using UnityEngine;
-using Cinemachine;
+using UnityEngine.UI;
 
-/// <summary>カメラに映すプレイヤーの自機達を取得する </summary>
-public class CameraTarget : MonoBehaviour
+namespace Cinemachine
 {
-    [SerializeField, Header("シーン内にあるものをアタッチして下さい")] CinemachineTargetGroup _cinemachineTargetGroup;
-    [SerializeField, Header("プレイヤーの周りの映る範囲を変更出来る")] float _weight = 3f;
-    [SerializeField] float _radius = 3f;
-
-    /// <summary>
-    /// ルーム内のPlayerを取得してカメラに映すための関数
-    /// </summary>
-    public void GetTarget()
+    public class CameraTarget : MonoBehaviour
     {
-        var targets = GameObject.FindGameObjectsWithTag("Player");
-  
-        foreach (var t in targets)
+        CinemachineTargetGroup cinemachineTargetGroup;
+        [SerializeField]GameObject[] targets;
+        [SerializeField] Text text;
+
+        void Start()
         {
-             _cinemachineTargetGroup.AddMember(t.transform, _weight, _radius);
+            targets = new GameObject[2];
+            cinemachineTargetGroup = GetComponent<CinemachineTargetGroup>();
+            //デバック用
+            GetTarget();
         }
+
+        /// <summary>
+        /// ルーム内のPlayerを取得してカメラに映すための関数
+        /// </summary>
+        public void GetTarget()
+        {
+            targets = GameObject.FindGameObjectsWithTag("Player");
+            foreach (var t in targets)
+            {
+                cinemachineTargetGroup.AddMember(t.transform, 1, 1);
+            }
+        }
+
     }
 }
-

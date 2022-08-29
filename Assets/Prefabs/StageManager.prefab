@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1427966500184643678}
   - component: {fileID: 1427966500184643679}
-  - component: {fileID: 1427966499020210307}
   m_Layer: 0
   m_Name: StageManager
-  m_TagString: StageManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,19 +47,3 @@ MonoBehaviour:
   _startSpwanPoint:
   - {fileID: 0}
   - {fileID: 0}
-  _fadeOut: {fileID: 6805193364580428834, guid: b1b5a138b7a12654ba61dd342db7fa1a, type: 3}
---- !u!114 &1427966499020210307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427966500184643676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bea249b6deb5243b4adff4b9e0d797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cinemachineTargetGroup: {fileID: 0}
-  _weight: 3
-  _radius: 3

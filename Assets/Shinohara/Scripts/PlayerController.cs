@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     Rigidbody2D _rb2D = default;
     /// <summary>‰½”Ô–Ú‚ÌƒvƒŒƒCƒ„[‚È‚Ì‚© 0=player1 1=player2</summary>
     int _playerNumber = 0;
-    bool _isMove = true;
+
     bool _isJump = true;
     PhotonView _view => GetComponent<PhotonView>();
 
@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         }
     }
 
-    public bool IsMove { get => _isMove; set => _isMove = value; }
-
     void Start()
     {
         if (_view.IsMine)
@@ -42,7 +40,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     void Update()
     {
-        if (_view.IsMine && _isMove)
+        if (_view.IsMine)
         {
             var horizontal = Input.GetAxisRaw("Horizontal");
             if(horizontal > 0)
