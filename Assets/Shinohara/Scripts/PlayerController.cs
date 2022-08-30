@@ -69,12 +69,21 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        _isJump = true;
+    //    }
+    //}
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             _isJump = true;
         }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)

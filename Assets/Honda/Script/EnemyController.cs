@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag == "Wall")
+        if(collision.gameObject.name.Contains("Wall") || collision.gameObject.name.Contains("Door"))
         {
             scale.x *= -1;
             direction *= -1;
