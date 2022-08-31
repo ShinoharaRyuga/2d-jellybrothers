@@ -3035,7 +3035,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 975231366}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &752088051 stripped
 Transform:
@@ -3619,9 +3619,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 717764943}
   - {fileID: 248297057}
   - {fileID: 1978039633}
-  - {fileID: 717764943}
   - {fileID: 1265163893}
   - {fileID: 1408560481}
   - {fileID: 1040429336}
@@ -4437,7 +4437,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.200669, y: 1}
+    m_SensorSize: {x: 1.2028987, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6482,7 +6482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8680753805631969025, guid: 689c716b956c3004b831a991655d3d64, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.72
+      value: 83.5
       objectReference: {fileID: 0}
     - target: {fileID: 8680753805631969025, guid: 689c716b956c3004b831a991655d3d64, type: 3}
       propertyPath: m_LocalPosition.y
