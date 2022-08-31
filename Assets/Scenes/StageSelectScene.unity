@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 102908841}
   - component: {fileID: 102908840}
   - component: {fileID: 102908839}
+  - component: {fileID: 102908842}
   m_Layer: 0
   m_Name: 1-3
   m_TagString: Untagged
@@ -320,9 +321,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.5981132, b: 0.5981132, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -343,8 +344,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1963940701}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: SceneLoad
+        m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+        m_MethodName: StageSelect
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -392,6 +393,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102908837}
   m_CullTransparentMesh: 1
+--- !u!114 &102908842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102908837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ac334c479a5cd4ba1f56532711c6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &386390058
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +417,7 @@ GameObject:
   - component: {fileID: 386390062}
   - component: {fileID: 386390061}
   - component: {fileID: 386390060}
+  - component: {fileID: 386390063}
   m_Layer: 0
   m_Name: 1-5
   m_TagString: Untagged
@@ -454,9 +468,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.5981132, b: 0.5981132, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -477,8 +491,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1963940701}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: SceneLoad
+        m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+        m_MethodName: StageSelect
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -526,6 +540,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386390058}
   m_CullTransparentMesh: 1
+--- !u!114 &386390063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386390058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ac334c479a5cd4ba1f56532711c6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &671230418
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +800,7 @@ GameObject:
   - component: {fileID: 976007946}
   - component: {fileID: 976007947}
   m_Layer: 0
-  m_Name: StageSelectUI
+  m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,6 +1221,8 @@ GameObject:
   - component: {fileID: 1212243168}
   - component: {fileID: 1212243167}
   - component: {fileID: 1212243166}
+  - component: {fileID: 1212243169}
+  - component: {fileID: 1212243170}
   m_Layer: 0
   m_Name: 1-2
   m_TagString: Untagged
@@ -1245,9 +1273,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.5882353, b: 0.5882353, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1268,8 +1296,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1963940701}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: SceneLoad
+        m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+        m_MethodName: StageSelect
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1317,6 +1345,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212243164}
   m_CullTransparentMesh: 1
+--- !u!114 &1212243169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212243164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ac334c479a5cd4ba1f56532711c6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1212243170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212243164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177bddf229f8d8445a70c0652f03b7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisconnectAfterKeepAlive: 0
+  KeepAliveInBackground: 60000
+  ApplyDontDestroyOnLoad: 1
 --- !u!1 &1305318159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1721,7 @@ GameObject:
   - component: {fileID: 1609619553}
   - component: {fileID: 1609619552}
   - component: {fileID: 1609619551}
+  - component: {fileID: 1609619554}
   m_Layer: 0
   m_Name: 1-1
   m_TagString: Untagged
@@ -1716,9 +1772,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.5981132, b: 0.5981132, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1739,8 +1795,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1963940701}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: SceneLoad
+        m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+        m_MethodName: StageSelect
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1788,6 +1844,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609619549}
   m_CullTransparentMesh: 1
+--- !u!114 &1609619554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609619549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ac334c479a5cd4ba1f56532711c6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1963940699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1867,7 @@ GameObject:
   - component: {fileID: 1963940700}
   - component: {fileID: 1963940701}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: SelectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1829,9 +1897,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1963940699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d78276d476e9be4fba242eb338617b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e73f6cf447c7e94db375d4eb70122ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waitTime: 3
+  _1PColor: {r: 1, g: 0.5882353, b: 0.5882353, a: 1}
+  _2PColor: {r: 0.5882353, g: 0.5882353, b: 1, a: 1}
+  _stageSelectButton:
+  - {fileID: 1609619551}
+  - {fileID: 1212243166}
+  - {fileID: 102908839}
+  - {fileID: 2028760693}
+  - {fileID: 386390060}
 --- !u!1 &2028760691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,6 +1921,7 @@ GameObject:
   - component: {fileID: 2028760695}
   - component: {fileID: 2028760694}
   - component: {fileID: 2028760693}
+  - component: {fileID: 2028760696}
   m_Layer: 0
   m_Name: 1-4
   m_TagString: Untagged
@@ -1894,9 +1972,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.5981132, b: 0.5981132, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1917,8 +1995,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1963940701}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: SceneLoad
+        m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+        m_MethodName: StageSelect
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1966,3 +2044,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028760691}
   m_CullTransparentMesh: 1
+--- !u!114 &2028760696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028760691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ac334c479a5cd4ba1f56532711c6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
