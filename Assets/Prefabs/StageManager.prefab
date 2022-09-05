@@ -47,3 +47,4 @@ MonoBehaviour:
   _startSpwanPoint:
   - {fileID: 0}
   - {fileID: 0}
+  _fadeOutPrefab: {fileID: 2107835194126367160, guid: 993994ce750eecb4aa0ddee6a0faa3dd, type: 3}

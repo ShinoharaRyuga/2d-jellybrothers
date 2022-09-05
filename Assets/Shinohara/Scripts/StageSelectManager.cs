@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+
 
 
 /// <summary>ステージ選択機能のクラス </summary>
@@ -42,7 +42,7 @@ public class StageSelectManager : MonoBehaviour
 
     /// <summary>
     /// プレイヤーが遊びたいステージを選択する
-    /// onClickで呼ばれた
+    /// onClickで呼ばれる
     /// </summary>
     /// <param name="sceneName">選択されたシーン名</param>
     public void StageSelect(string sceneName)
@@ -59,6 +59,12 @@ public class StageSelectManager : MonoBehaviour
         }
     }
 
+    public void OnEnterStageSelectButton(Button button)
+    {
+        Debug.Log($"Mouse Enter: {button.gameObject.name}");
+        // TODO: Event または RPC で相手にどれが選ばれたか送る
+    }
+
     /// <summary>一定時間後シーン遷移する </summary>
     IEnumerator WaitTransition(string sceneName)
     {
@@ -72,6 +78,6 @@ public class StageSelectManager : MonoBehaviour
     [PunRPC]
     void SceneChange(string sceneName)
     {
-        StartCoroutine(WaitTransition(sceneName));
+        PhotonNetwork.LoadLevel(sceneName);
     }
 }
