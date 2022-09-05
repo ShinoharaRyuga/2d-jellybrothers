@@ -607,8 +607,9 @@ GameObject:
   m_Component:
   - component: {fileID: 71240223}
   - component: {fileID: 71240222}
+  - component: {fileID: 71240224}
   m_Layer: 0
-  m_Name: DestroyArea
+  m_Name: DeadZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,6 +656,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71240224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71240221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb240349aa1957d4c92e5c21e42befa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawnManager: {fileID: 585397387}
 --- !u!1 &85045620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1507,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7427880626346119383, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
   m_PrefabInstance: {fileID: 585397385}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &585397387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+  m_PrefabInstance: {fileID: 585397385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d44081153f62d4d8b3aff40a28893e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &611378076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4920,6 +4945,7 @@ GameObject:
   - component: {fileID: 2123256493}
   - component: {fileID: 2123256492}
   - component: {fileID: 2123256494}
+  - component: {fileID: 2123256495}
   m_Layer: 0
   m_Name: DangerousZone
   m_TagString: Untagged
@@ -5020,6 +5046,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2123256495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123256491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb240349aa1957d4c92e5c21e42befa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawnManager: {fileID: 585397387}
 --- !u!4 &2142835725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8193831717171719134, guid: 05fcc80058eff9648894be4a118efda9, type: 3}
