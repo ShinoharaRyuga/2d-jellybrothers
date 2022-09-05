@@ -1,33 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI;
+using Cinemachine;
 
-namespace Cinemachine
+public class CameraTarget : MonoBehaviour
 {
-    public class CameraTarget : MonoBehaviour
+    [SerializeField, Header("プレイヤーの周りの映る範囲を変更出来る")] float _weight = 3f;
+    [SerializeField, Header("プレイヤーの周りの映る範囲を変更出来る")] float _radius = 3f;
+    CinemachineTargetGroup _cinemachineTargetGroup => GetComponent<CinemachineTargetGroup>();
+    GameObject[] targets;
+
+    /// <summary>
+    /// ルーム内のPlayerを取得してカメラに映すための関数
+    /// </summary>
+    public void GetTarget()
     {
-        CinemachineTargetGroup cinemachineTargetGroup;
-        [SerializeField]GameObject[] targets;
-        [SerializeField] Text text;
+        targets = GameObject.FindGameObjectsWithTag("Player");
 
-        void Start()
+        foreach (var t in targets)
         {
-            targets = new GameObject[2];
-            cinemachineTargetGroup = GetComponent<CinemachineTargetGroup>();
-            //デバック用
-            GetTarget();
+            _cinemachineTargetGroup.AddMember(t.transform, _weight, _radius);
         }
-
-        /// <summary>
-        /// ルーム内のPlayerを取得してカメラに映すための関数
-        /// </summary>
-        public void GetTarget()
-        {
-            targets = GameObject.FindGameObjectsWithTag("Player");
-            foreach (var t in targets)
-            {
-                cinemachineTargetGroup.AddMember(t.transform, 1, 1);
-            }
-        }
-
     }
 }
+
