@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Tooltip("エネミー自身の色")] EnemyColor _enemy = default;
     [SerializeField, Tooltip("エネミーの移動速度")] float _speed = 2f;
     [SerializeField, Tooltip("リスポーンポイント")] Transform enemyRespawnPoint = null;
+    [SerializeField, Tooltip("プレイヤーをリスポーンさせる為に取得")] RespawnManager _respawnManager = null;
 
     /// <summary>エネミーの進む方向</summary>
     Vector2 direction;
@@ -38,7 +39,7 @@ public class EnemyController : MonoBehaviour
             }
             else if(collision.gameObject.name == Player.Player2.ToString())
             {
-                //プレイヤーのリスポーン処理
+                _respawnManager.Respawn();
             }
         }
         else if(_enemy == EnemyColor.BlueEnemy)
@@ -49,7 +50,7 @@ public class EnemyController : MonoBehaviour
             }
             else if(collision.gameObject.name == Player.Player1.ToString())
             {
-                //プレイヤーのリスポーン処理
+                _respawnManager.Respawn();
             }
         }
 

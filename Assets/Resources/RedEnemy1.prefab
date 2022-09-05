@@ -138,3 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: 0
   _speed: 2
+  enemyRespawnPoint: {fileID: 0}
+  _respawnManager: {fileID: 0}

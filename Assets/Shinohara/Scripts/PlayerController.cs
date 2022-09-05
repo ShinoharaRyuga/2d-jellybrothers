@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     bool _isJump = true;
     PhotonView _view => GetComponent<PhotonView>();
 
+    Animator _anim;
+    bool _isGrounded = true;
+
+
     public int PlayerNumber 
     {
         get { return _playerNumber; }
@@ -35,6 +39,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         if (_view.IsMine)
         {
             _rb2D = GetComponent<Rigidbody2D>();
+            _anim = GetComponent<Animator>();
         }
     }
 
@@ -65,21 +70,20 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
             {
                 _rb2D.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
             }
+
+            _anim.SetFloat("Speed", Mathf.Abs(horizontal));
+            //着地時にアニメーション開始
+            if (_isJump && !_isGrounded)
+            {
+                _anim.SetBool("Landing", _isGrounded);
+            }
         }
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "DestroyArea")
-        {
-            //プレイヤーのリスポーン処理
-        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player"))
         {
             _isJump = true;
         }
@@ -88,9 +92,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player"))
         {
             _isJump = false;
+            _isGrounded = false;
         }
     }
 
@@ -114,6 +119,13 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
                 transform.localScale = new Vector3(3, 1, 1);
                 break;
         }
+    }
+
+    //アニメーション終了時の処理
+    public void EndAnim()
+    {
+        _isGrounded = true;
+        _anim.SetBool("Landing", _isGrounded);
     }
 
     /// <summary>
