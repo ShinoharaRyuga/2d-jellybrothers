@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField, Tooltip("エネミー自身の色")] EnemyColor _enemy = default;
     [SerializeField, Tooltip("エネミーの移動速度")] float _speed = 2f;
+    [SerializeField, Tooltip("リスポーンポイント")] Transform enemyRespawnPoint = null;
+
     /// <summary>エネミーの進む方向</summary>
     Vector2 direction;
     /// <summary>エネミーの向いている向き </summary>
@@ -51,9 +53,9 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if(collision.gameObject.name == "Bottom")
+        if(collision.gameObject.name == "DestroyArea")
         {
-            Destroy(gameObject);
+            transform.position = enemyRespawnPoint.position;
         }
 
         if(collision.gameObject.name.Contains("Wall") || collision.gameObject.name.Contains("Door"))
