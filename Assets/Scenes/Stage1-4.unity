@@ -893,6 +893,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7427880626346119383, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
   m_PrefabInstance: {fileID: 290122509}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &290122511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427880626346119376, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+  m_PrefabInstance: {fileID: 290122509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d44081153f62d4d8b3aff40a28893e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &298764164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1092,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388849908}
     m_Modifications:
+    - target: {fileID: 3005465460057790129, guid: 100fedb63bf83884c9b71e0f6818a00f, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     - target: {fileID: 5439308072504782612, guid: 100fedb63bf83884c9b71e0f6818a00f, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1143,6 +1158,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388849908}
     m_Modifications:
+    - target: {fileID: 3005465460057790129, guid: 100fedb63bf83884c9b71e0f6818a00f, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     - target: {fileID: 5439308072504782612, guid: 100fedb63bf83884c9b71e0f6818a00f, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2360,6 +2379,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388849908}
     m_Modifications:
+    - target: {fileID: 3005465460057790129, guid: 100fedb63bf83884c9b71e0f6818a00f, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     - target: {fileID: 5439308072504782612, guid: 100fedb63bf83884c9b71e0f6818a00f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3083,6 +3106,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388849908}
     m_Modifications:
+    - target: {fileID: 1691400060399732093, guid: 51c313e9e518af242867344e0a9d7f64, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     - target: {fileID: 8480502754048998616, guid: 51c313e9e518af242867344e0a9d7f64, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3193,6 +3220,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7529103047568208377, guid: e15322824a9f1e84e922f779afe67a36, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e15322824a9f1e84e922f779afe67a36, type: 3}
 --- !u!1 &1030640725
@@ -3766,8 +3797,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1207669457}
   - component: {fileID: 1207669456}
+  - component: {fileID: 1207669458}
   m_Layer: 0
-  m_Name: DestroyArea
+  m_Name: DeadZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3814,6 +3846,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1207669458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207669455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb240349aa1957d4c92e5c21e42befa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawnManager: {fileID: 290122511}
 --- !u!1001 &1241627610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3869,6 +3914,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7118435322848655788, guid: b87f46cb265ff51419f8d056cc76abd5, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87f46cb265ff51419f8d056cc76abd5, type: 3}
 --- !u!1 &1253953788
@@ -4239,6 +4288,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388849908}
     m_Modifications:
+    - target: {fileID: 1691400060399732093, guid: 51c313e9e518af242867344e0a9d7f64, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     - target: {fileID: 8480502754048998616, guid: 51c313e9e518af242867344e0a9d7f64, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4349,6 +4402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7118435322848655788, guid: b87f46cb265ff51419f8d056cc76abd5, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87f46cb265ff51419f8d056cc76abd5, type: 3}
 --- !u!1001 &1360839799
@@ -5071,6 +5128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7118435322848655788, guid: b87f46cb265ff51419f8d056cc76abd5, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87f46cb265ff51419f8d056cc76abd5, type: 3}
 --- !u!1001 &1746040344
@@ -5948,6 +6009,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7529103047568208377, guid: e15322824a9f1e84e922f779afe67a36, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e15322824a9f1e84e922f779afe67a36, type: 3}
 --- !u!1 &1937189922
@@ -6153,6 +6218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388849908}
     m_Modifications:
+    - target: {fileID: 1691400060399732093, guid: 51c313e9e518af242867344e0a9d7f64, type: 3}
+      propertyPath: _respawnManager
+      value: 
+      objectReference: {fileID: 290122511}
     - target: {fileID: 8480502754048998616, guid: 51c313e9e518af242867344e0a9d7f64, type: 3}
       propertyPath: m_RootOrder
       value: 3
