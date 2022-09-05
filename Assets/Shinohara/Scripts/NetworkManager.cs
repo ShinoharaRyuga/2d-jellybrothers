@@ -12,7 +12,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 {
     [SerializeField, HideInInspector] 
     string _player1PrefabName = "Player1";
-
     [SerializeField, HideInInspector] 
     string _player2PrefabName = "Player2";
 
