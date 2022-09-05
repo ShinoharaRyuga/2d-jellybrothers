@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
             }
             else if(collision.gameObject.name == Player.Player2.ToString())
             {
-                Destroy(collision.gameObject);
+                //プレイヤーのリスポーン処理
             }
         }
         else if(_enemy == EnemyColor.BlueEnemy)
@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
             }
             else if(collision.gameObject.name == Player.Player1.ToString())
             {
-                Destroy(collision.gameObject);
+                //プレイヤーのリスポーン処理
             }
         }
 
