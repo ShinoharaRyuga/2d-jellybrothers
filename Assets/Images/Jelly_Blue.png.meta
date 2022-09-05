@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01d7dfebe85ad5e449438cf15b8a3b27
+guid: b1cbd17cd4ca15249950e15bea4a0a4b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -108,9 +108,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 480
-        width: 480
-        height: 480
+        y: 2880
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cf6f94ad5ca12444b8f399c75eae939
-      internalID: -1487250986
+      spriteID: 337e77d2ed979994e80729f73f74f15e
+      internalID: -674462068
       vertices: []
       indices: 
       edges: []
@@ -128,10 +128,10 @@ TextureImporter:
       name: Jelly_Blue_1
       rect:
         serializedVersion: 2
-        x: 480
-        y: 480
-        width: 480
-        height: 480
+        x: 960
+        y: 2880
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb059a72f900d9d49a395c7320fdfde7
-      internalID: 1994228371
+      spriteID: 89f7a508389fff14a8eee2c066a9a6d0
+      internalID: -716125801
       vertices: []
       indices: 
       edges: []
@@ -149,10 +149,10 @@ TextureImporter:
       name: Jelly_Blue_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 480
-        height: 480
+        x: 1920
+        y: 2880
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e89a0b0e8ff0df945b1fdcc6126a5996
-      internalID: 1067537478
+      spriteID: b2cf014e798d0c44ea1fea94ba672227
+      internalID: 2006270293
       vertices: []
       indices: 
       edges: []
@@ -170,10 +170,10 @@ TextureImporter:
       name: Jelly_Blue_3
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 480
-        height: 480
+        x: 0
+        y: 1920
+        width: 960
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a1a6b13c1b7654ca7ecfe0f37ebf29
-      internalID: 544696870
+      spriteID: b042cf13933b62d4b98df6949be0259e
+      internalID: 961151192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jelly_Blue_4
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1920
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c39d3368bc0c0438bad388b1860082
+      internalID: 1000411364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jelly_Blue_5
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4eb8dec7861f13459b5e281962757c3
+      internalID: 1625515501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jelly_Blue_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 937f3e8d3d2a20648b10f052d1f9881c
+      internalID: 902390483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jelly_Blue_7
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d68515fea3fddb34caa2fd9827e78d7d
+      internalID: -1707652467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jelly_Blue_8
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 960
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6797b32510e57458c318207d5f87f9
+      internalID: 1597989434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jelly_Blue_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1f0d915054c33488fbb21f85ac78f4
+      internalID: -199337226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jelly_Blue_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118e71186eaa04546ab396cb43973512
+      internalID: -1726108367
       vertices: []
       indices: 
       edges: []
@@ -198,10 +345,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jelly_Blue_2: 1067537478
-      Jelly_Blue_0: -1487250986
-      Jelly_Blue_3: 544696870
-      Jelly_Blue_1: 1994228371
+      Jelly_Blue_2: 2006270293
+      Jelly_Blue_5: 1625515501
+      Jelly_Blue_8: 1597989434
+      Jelly_Blue_4: 1000411364
+      Jelly_Blue_6: 902390483
+      Jelly_Blue_0: -674462068
+      Jelly_Blue_3: 961151192
+      Jelly_Blue_10: -1726108367
+      Jelly_Blue_7: -1707652467
+      Jelly_Blue_9: -199337226
+      Jelly_Blue_1: -716125801
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
