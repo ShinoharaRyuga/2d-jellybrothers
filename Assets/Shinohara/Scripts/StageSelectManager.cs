@@ -8,6 +8,7 @@ using Photon.Realtime;
 
 
 /// <summary>ステージ選択機能のクラス </summary>
+[RequireComponent(typeof(PhotonView))]
 public class StageSelectManager : MonoBehaviour
 {
     [SerializeField, Header("シーン遷移するまでの時間")] float _waitTime = 3f;
@@ -15,6 +16,7 @@ public class StageSelectManager : MonoBehaviour
     [SerializeField, Header("2Pセレクトカラー")] Color _2PColor = default;
     [SerializeField] Button[] _stageSelectButton = default;
   
+    PhotonView _myView => GetComponent<PhotonView>();
     private void Start()
     {
         //プレイヤーが選択しているボタンを色を変更する
@@ -38,17 +40,38 @@ public class StageSelectManager : MonoBehaviour
         }
     }
 
-    /// <summary> </summary>
-    /// <param name="sceneName"></param>
+    /// <summary>
+    /// プレイヤーが遊びたいステージを選択する
+    /// onClickで呼ばれた
+    /// </summary>
+    /// <param name="sceneName">選択されたシーン名</param>
     public void StageSelect(string sceneName)
     {
-        StartCoroutine(WaitTransition(sceneName));
+        if (PhotonNetwork.IsMasterClient)
+        {
+            StartCoroutine(WaitTransition(sceneName));
+        }
+        else
+        {
+            Debug.Log("hit");
+            object[] parameters = new object[] { sceneName };
+            _myView.RPC("SceneChange", RpcTarget.Others, parameters);
+        }
     }
 
-
+    /// <summary>一定時間後シーン遷移する </summary>
     IEnumerator WaitTransition(string sceneName)
     {
         yield return new WaitForSeconds(_waitTime);
         PhotonNetwork.LoadLevel(sceneName);
+    }
+
+    /// <summary>マスタークライアントではないプレイヤー(2P)
+    /// がステージを選択した場合に呼ばれる 
+    /// </summary>
+    [PunRPC]
+    void SceneChange(string sceneName)
+    {
+        StartCoroutine(WaitTransition(sceneName));
     }
 }
