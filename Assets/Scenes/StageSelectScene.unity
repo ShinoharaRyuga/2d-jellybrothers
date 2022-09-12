@@ -413,11 +413,27 @@ MonoBehaviour:
         - m_Target: {fileID: 1963940701}
           m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
           m_MethodName: OnEnterStageSelectButton
-          m_Mode: 2
+          m_Mode: 3
           m_Arguments:
-            m_ObjectArgument: {fileID: 102908839}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-            m_IntArgument: 0
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1963940701}
+          m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+          m_MethodName: OnExitStageSelectButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -577,11 +593,27 @@ MonoBehaviour:
         - m_Target: {fileID: 1963940701}
           m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
           m_MethodName: OnEnterStageSelectButton
-          m_Mode: 2
+          m_Mode: 3
           m_Arguments:
-            m_ObjectArgument: {fileID: 386390060}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-            m_IntArgument: 0
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1963940701}
+          m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+          m_MethodName: OnExitStageSelectButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1398,11 +1430,27 @@ MonoBehaviour:
         - m_Target: {fileID: 1963940701}
           m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
           m_MethodName: OnEnterStageSelectButton
-          m_Mode: 2
+          m_Mode: 3
           m_Arguments:
-            m_ObjectArgument: {fileID: 1212243166}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-            m_IntArgument: 0
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1963940701}
+          m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+          m_MethodName: OnExitStageSelectButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1899,10 +1947,26 @@ MonoBehaviour:
         - m_Target: {fileID: 1963940701}
           m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
           m_MethodName: OnEnterStageSelectButton
-          m_Mode: 2
+          m_Mode: 3
           m_Arguments:
-            m_ObjectArgument: {fileID: 1609619551}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1963940701}
+          m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+          m_MethodName: OnExitStageSelectButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1954,8 +2018,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitTime: 3
-  _1PColor: {r: 1, g: 0.5882353, b: 0.5882353, a: 1}
-  _2PColor: {r: 0.5882353, g: 0.5882353, b: 1, a: 1}
+  _selectColors:
+  - {r: 1, g: 0.5882353, b: 0.5882353, a: 1}
+  - {r: 0.5882353, g: 0.5882353, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   _stageSelectButton:
   - {fileID: 1609619551}
   - {fileID: 1212243166}
@@ -2139,11 +2205,27 @@ MonoBehaviour:
         - m_Target: {fileID: 1963940701}
           m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
           m_MethodName: OnEnterStageSelectButton
-          m_Mode: 2
+          m_Mode: 3
           m_Arguments:
-            m_ObjectArgument: {fileID: 2028760693}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-            m_IntArgument: 0
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1963940701}
+          m_TargetAssemblyTypeName: StageSelectManager, Assembly-CSharp
+          m_MethodName: OnExitStageSelectButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
