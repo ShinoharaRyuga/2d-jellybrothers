@@ -11,21 +11,26 @@ public class StageSelectManager : MonoBehaviour
 {
     /// <summary>元々のボタンの色　 </summary>
     const int ORIGINAL_BUTTON_COLOR = 2;
-   
+    /// <summary>全てのプレイヤーが同じボタンを選択した時の色 </summary>
+    const int ALL_SELECT_COLOR = 3;
     [SerializeField, Header("シーン遷移するまでの時間")] float _waitTime = 3f;
-    [PlayerNameArrayAttribute(new string[] { "Player1", "Player2", "元の色" })]
+    [PlayerNameArrayAttribute(new string[] { "Player1", "Player2", "元の色", "AllPlayer" })]
     [SerializeField, Header("セレクトカラー")] Color[] _selectColors = null;
-    [SerializeField] Button[] _stageSelectButton = default;
+    [PlayerNameArrayAttribute(new string[] { "Stage1", "Stage2", "Stage3", "Stage4", "Stage5" })]
+    [SerializeField] StageSelectButton[] _stageSelectButton = default;
 
     PhotonView _myView => GetComponent<PhotonView>();
+
     private void Start()
     {
         //各ボタンのハイライト時の色を変更する
-        foreach (var button in _stageSelectButton)
+        for (var i = 0; i < _stageSelectButton.Length; i++)
         {
+            var button = _stageSelectButton[i].GetComponent<Button>();
             var colorBlock = button.colors;
             colorBlock.highlightedColor = _selectColors[PlayerData.Instance.PlayerNumber];
             button.colors = colorBlock;
+            _stageSelectButton[i].Index = i;
         }
     }
 
@@ -49,25 +54,33 @@ public class StageSelectManager : MonoBehaviour
 
     /// <summary>
     /// 相手ボタンの色を変更する
-    /// ステージ選択ボタンにマウスが乗ったら呼ばれる 
+    /// ステージ選択ボタンにカーソルが乗ったら呼ばれる 
     /// </summary>
     /// <param name="index">変更するボタンの添え字</param>
-    public void OnEnterStageSelectButton(int index)
+    public void OnEnterStageSelectButton(StageSelectButton button)
     {
-        // TODO: Event または RPC で相手にどれが選ばれたか送る
-        object[] parameters = new object[] { index, PlayerData.Instance.PlayerNumber };
-        _myView.RPC(nameof(AsyncButtonColor), RpcTarget.Others, parameters);
+        button.IsSelect[PlayerData.Instance.PlayerNumber] = true;
+        var playerNumber = PlayerData.Instance.PlayerNumber;
+        object[] parameters = new object[] { button.Index, playerNumber, playerNumber };
+        _myView.RPC(nameof(AsyncButtonColor), RpcTarget.All, parameters);
     }
 
     /// <summary>
     /// ボタンの色を元々の色にする
-    /// ステージ選択ボタンからマウスが離れたら呼ばれる 
+    /// ステージ選択ボタンからカーソルが離れたら呼ばれる 
     /// </summary>
     /// <param name="index"></param>
-    public void OnExitStageSelectButton(int index)
+    public void OnExitStageSelectButton(StageSelectButton button)
     {
-        object [] parameters = new object[] { index, ORIGINAL_BUTTON_COLOR };
-        _myView.RPC(nameof(AsyncButtonColor), RpcTarget.Others, parameters);
+        button.IsSelect[PlayerData.Instance.PlayerNumber] = false;
+        object [] parameters = new object[] { button.Index, ORIGINAL_BUTTON_COLOR, PlayerData.Instance.PlayerNumber };
+        _myView.RPC(nameof(AsyncButtonColor), RpcTarget.All, parameters);
+    }
+
+    /// <summary>全プレイヤーが同じボタンを選択している時のボタンの色を返す </summary>
+    public Color GetAllSelectColor()
+    {
+        return _selectColors[ALL_SELECT_COLOR];
     }
 
     /// <summary>一定時間後シーン遷移する </summary>
@@ -92,11 +105,14 @@ public class StageSelectManager : MonoBehaviour
     /// <param name="index">変更するボタンの添え字</param>
     /// <param name="playerNumber">変更後の色</param>
     [PunRPC]
-    void AsyncButtonColor(int index, int playerNumber)
+    void AsyncButtonColor(int index, int colorIndex, int playerNumber)
     {
-        var selectButton = _stageSelectButton[index];
+        _stageSelectButton[index].IsSelect[playerNumber] = true;
+        var selectButton = _stageSelectButton[index].GetComponent<Button>();
         var colorBlock = selectButton.colors;
-        colorBlock.normalColor = _selectColors[playerNumber];
+        colorBlock.normalColor = _selectColors[colorIndex];
         selectButton.colors = colorBlock;
+
+        _stageSelectButton[index].ChangeAllSelectColor();
     }
 }
