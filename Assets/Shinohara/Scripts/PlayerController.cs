@@ -16,12 +16,18 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     int _playerNumber = 0;
     /// <summary>滑る床で掛ける力 </summary>
     float _slideFloorPower = 0.01f;
+    /// <summary>前フレームの入力 </summary>
+    float _lastHorizontal =  0f;
     bool _isJump = true;
     /// <summary>滑る床に乗っているかどうか </summary>
     bool _onSlideFloor = false;
+    bool _onBeltConveyor = false;
     bool _isGrounded = true;
+    /// <summary>ベルトコンベアに乗っている時の向き</summary>
+    Vector2 _onBeltConveyorDirection = Vector2.zero;
     PhotonView _view => GetComponent<PhotonView>();
-    Animator _anim;
+    Animator _anim => GetComponent<Animator>();
+    SpriteRenderer _sr => GetComponent<SpriteRenderer>();
    
     public int PlayerNumber 
     {
@@ -36,13 +42,13 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     }
 
     public bool OnSlideFloor { get => _onSlideFloor; set => _onSlideFloor = value; }
+    public bool OnBeltConveyor { get => _onBeltConveyor; set => _onBeltConveyor = value; }
 
     void Start()
     {
         if (_view.IsMine)
         {
             _rb2D = GetComponent<Rigidbody2D>();
-            _anim = GetComponent<Animator>();
         }
     }
 
@@ -51,18 +57,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         if (_view.IsMine)
         {
             var horizontal = Input.GetAxisRaw("Horizontal");
-            if(horizontal > 0)
-            {
-                gameObject.transform.eulerAngles = new Vector2(0, 0);
-
-            }
-            else if(horizontal < 0)
-            {
-                gameObject.transform.eulerAngles = new Vector2(0, 180);
-            }
-
             var moveDirction = new Vector2(horizontal, 0).normalized * _speed;
             float verticalVelocity = _rb2D.velocity.y;
+
+            if (_lastHorizontal != horizontal)  //向きを変える
+            {
+                var parameter = new object[] { horizontal };
+                _view.RPC(nameof(ChangePlayerDirection), RpcTarget.All, parameter);
+            }
 
             if (!_onSlideFloor) //通常時
             {
@@ -94,8 +96,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
             {
                 _anim.SetBool("Landing", _isGrounded);
             }
-        }
 
+            if (_onBeltConveyor)
+            {
+                transform.up = _onBeltConveyorDirection;
+            }
+
+            _lastHorizontal = horizontal;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -120,9 +128,18 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         }
     }
 
+    /// <summary>滑る床で掛ける力を取得 </summary>
+    /// <param name="power"></param>
     public void GetSlidePower (float power)
     {
         _slideFloorPower = power;
+        _onSlideFloor = true;
+    }
+
+    public void SetOnBeltConveyor(Vector2 direction)
+    {
+        _onBeltConveyorDirection = direction;
+        _onBeltConveyor = true;
     }
 
     //アニメーション終了時の処理
@@ -169,6 +186,21 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
                 transform.localScale = new Vector3(3, 1, 1);
                 break;
         }
+    }
+
+    /// <summary>自機の向きを変更し同期する </summary>
+    [PunRPC]
+    void ChangePlayerDirection(float horizontal)
+    {
+        if (horizontal > 0)     //右を向く
+        {
+            _sr.flipX = false;
+        }
+        else if (horizontal < 0)    //左を向く
+        {
+            _sr.flipX = true;
+        }
+
     }
 
     enum Shape
