@@ -14,6 +14,12 @@ public class TitleAnimation : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb2D = GetComponent<Rigidbody2D>();
     }
+
+    private void Update()
+    {
+        
+    }
+
     public void Jump()
     {
         _rb2D.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
@@ -33,5 +39,6 @@ public class TitleAnimation : MonoBehaviour
             _anim.SetBool("Landing", _isGrounded);
         }
     }
+
 
 }

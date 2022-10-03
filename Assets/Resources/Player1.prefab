@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 2578018646423416595}
   - component: {fileID: 9154998946538999488}
   - component: {fileID: 7924166387011915571}
+  - component: {fileID: 3887651452480330309}
   - component: {fileID: 3626701974560759476}
   - component: {fileID: 3626701974560759433}
   - component: {fileID: 3626701974560759432}
   - component: {fileID: 5024471151214783188}
-  - component: {fileID: 7071609347775690384}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -76,7 +76,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 9154998946538999488}
   - {fileID: 7924166387011915571}
-  - {fileID: 7071609347775690384}
+  - {fileID: 3887651452480330309}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -112,6 +112,30 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &3887651452480330309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626701974560759477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Landing
+  - Type: 1
+    SynchronizeType: 1
+    Name: Speed
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!212 &3626701974560759476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,27 +255,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7071609347775690384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3626701974560759477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: Landing
-  - Type: 1
-    SynchronizeType: 1
-    Name: Speed
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
