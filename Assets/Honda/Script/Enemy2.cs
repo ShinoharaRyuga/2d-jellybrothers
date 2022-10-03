@@ -6,7 +6,6 @@ public class Enemy2 : EnemyController
 {
     [SerializeField, Tooltip("ƒWƒƒƒ“ƒv—Í")] float _jumpPower = 5;
     bool isGrounded = false;
-    float time = 0;
     protected override void Awake()
     {
         base.Awake();

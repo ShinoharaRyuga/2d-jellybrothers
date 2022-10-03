@@ -71,11 +71,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
                 _rb2D.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
             }
 
-            _anim.SetFloat("Speed", Mathf.Abs(horizontal));
-            //着地時にアニメーション開始
-            if (_isJump && !_isGrounded)
+            if(_anim)
             {
-                _anim.SetBool("Landing", _isGrounded);
+                _anim.SetFloat("Speed", Mathf.Abs(horizontal));
+                //着地時にアニメーション開始
+                if (_isJump && !_isGrounded)
+                {
+                    _anim.SetBool("Landing", _isGrounded);
+                }
             }
         }
 
@@ -124,8 +127,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     //アニメーション終了時の処理
     public void EndAnim()
     {
-        _isGrounded = true;
-        _anim.SetBool("Landing", _isGrounded);
+        if(_anim)
+        {
+            _isGrounded = true;
+            _anim.SetBool("Landing", _isGrounded);
+        }
     }
 
     /// <summary>
