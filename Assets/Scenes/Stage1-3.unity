@@ -900,7 +900,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9718173, y: 1}
+    m_SensorSize: {x: 0.94759834, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1784,15 +1784,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1669929710814735478, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -68.29991
       objectReference: {fileID: 0}
     - target: {fileID: 1669929710814735478, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.19471748
       objectReference: {fileID: 0}
     - target: {fileID: 1669929710814735478, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -9.921534
       objectReference: {fileID: 0}
     - target: {fileID: 1669929710814735478, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2564,12 +2564,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -268318436, guid: 941883c73514d3b49872961892fb08c4, type: 3}
+  m_Sprite: {fileID: -920496882, guid: ca2aed444504fc84f92e66f38c03233e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.8, y: 4.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
