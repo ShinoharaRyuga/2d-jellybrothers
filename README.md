@@ -48,3 +48,6 @@ Assetsフォルダの直下に以下フォルダを作成しました。
 
 ## 要素案
 [要素案](https://drive.google.com/drive/folders/1EzZpdk03KjzjG029Iuoia5yaIyrEV4Nw)
+
+## App Id PUN
+669b79b7-082d-4a9b-b7f1-0ca39ab605d6
