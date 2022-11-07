@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _jumpPower: 6
+  _jumpPower: 8
   _currentShape: 0
 --- !u!114 &2578018646423416595
 MonoBehaviour:
