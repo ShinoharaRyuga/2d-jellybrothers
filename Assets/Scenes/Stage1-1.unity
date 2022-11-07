@@ -1644,7 +1644,7 @@ GameObject:
   - component: {fileID: 331251512}
   m_Layer: 0
   m_Name: Block (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5162,7 +5162,7 @@ GameObject:
   - component: {fileID: 1446325358}
   m_Layer: 0
   m_Name: Block (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6401,7 +6401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1782953999
 Animator:
   serializedVersion: 4
@@ -7205,7 +7205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37534392db53e7d4f9da859ee6add55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateSprite: {fileID: 0}
+  updateSprite: {fileID: -789722035, guid: 547adf4a40e39874a86a06e80390952d, type: 3}
 --- !u!1 &2099281577
 GameObject:
   m_ObjectHideFlags: 0
