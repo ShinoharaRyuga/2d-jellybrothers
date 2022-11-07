@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GimmickButton (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8660484250095499587, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
+      propertyPath: _gimmickObject
+      value: 
+      objectReference: {fileID: 520741181}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
 --- !u!4 &13760919 stripped
@@ -2138,9 +2142,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2045298373}
   - {fileID: 476886632}
   - {fileID: 1476768724}
+  - {fileID: 2045298373}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2280,7 +2284,7 @@ Transform:
   - {fileID: 1937604906}
   - {fileID: 249855771}
   m_Father: {fileID: 371851109}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &502856536
 PrefabInstance:
@@ -2341,6 +2345,10 @@ PrefabInstance:
       propertyPath: _player
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8660484250095499587, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
+      propertyPath: _gimmickObject
+      value: 
+      objectReference: {fileID: 1908182599}
     - target: {fileID: 8660484250095499589, guid: a4d8333b8bbaa064eb2ce795c70f132f, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -2438,6 +2446,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2787691966508239072, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
   m_PrefabInstance: {fileID: 520741179}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &520741181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2787691966508239073, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
+  m_PrefabInstance: {fileID: 520741179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9a7a1baba0f11469a6e0bd484f0bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &541979523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,6 +3374,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1669929709744167044, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1669929710814735477, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
       propertyPath: m_Name
       value: GameCamera
@@ -3365,7 +3388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1669929710814735478, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1669929710814735478, guid: 8676bd1fc3a1a674593efc8079012412, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5405,7 +5428,7 @@ Transform:
   - {fileID: 1335219553}
   - {fileID: 1434683597}
   m_Father: {fileID: 371851109}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1495400514
 GameObject:
@@ -6709,6 +6732,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2787691966508239072, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
   m_PrefabInstance: {fileID: 1908182597}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1908182599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2787691966508239073, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
+  m_PrefabInstance: {fileID: 1908182597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9a7a1baba0f11469a6e0bd484f0bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1910559722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2787691966508239072, guid: 9913e48b86cad8848aa51863c7f6ecdf, type: 3}
@@ -6825,6 +6859,10 @@ PrefabInstance:
     - target: {fileID: 7427880626346119382, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
       propertyPath: m_Name
       value: RespawnManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427880626346119382, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7427880626346119383, guid: 1d18f28fbfc1c174fbce1da07f3639e3, type: 3}
       propertyPath: m_RootOrder
