@@ -13,4 +13,10 @@ public class StageManager : MonoBehaviour
         NetworkManager.PlayerInstantiate(playerNumber, _startSpwanPoint[playerNumber].position);
         Instantiate(_fadeOutPrefab);
     }
+
+    /// <summary>ƒS[ƒ‹ˆÊ’u‚É“’…</summary>
+    public void StageClear()
+    {
+        Debug.Log("hit");
+    }
 }
