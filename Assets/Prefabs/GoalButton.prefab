@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transitionTime: 3
   _player: 0
   _partnerButton: {fileID: 4014536703351302940}
 --- !u!114 &4014536704137010545
@@ -158,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5781434385452363925}
-  - component: {fileID: 2916505193053721378}
+  - component: {fileID: 4824628431151161724}
   m_Layer: 0
   m_Name: GoalButton
   m_TagString: Untagged
@@ -183,7 +184,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2916505193053721378
+--- !u!114 &4824628431151161724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,10 +193,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5781434385452363924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a90da7b235c1ce429b9370b57ad7b45, type: 3}
+  m_Script: {fileID: 11500000, guid: 330df32f8e427394f80e6178c3bb540c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalWall: {fileID: 0}
+  _stageManager: {fileID: 0}
 --- !u!1 &5781434386210886398
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9ad0f57ca78e747b13a76f91e4a407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transitionTime: 3
   _player: 1
   _partnerButton: {fileID: 4014536704137010544}
 --- !u!114 &4014536703351302941

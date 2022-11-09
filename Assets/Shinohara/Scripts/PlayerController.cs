@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     [SerializeField, Header("移動速度")] float _speed = 3f;
     [SerializeField, Header("ジャンプ力")] float _jumpPower = 3f;
+    [SerializeField, Header("使用イラスト")] Sprite[] _useSprites = default;
     [SerializeField, Tooltip("現在の形")] Shape _currentShape = Shape.Cube;
     Rigidbody2D _rb2D = default;
     /// <summary>何番目のプレイヤーなのか 0=player1 1=player2</summary>
@@ -184,12 +185,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             case Shape.Cube:
                 transform.localScale = new Vector3(1, 1, 1);
+                _sr.sprite = _useSprites[0];
                 break;
             case Shape.Vertical:
                 transform.localScale = new Vector3(1, 3, 1);
+                _sr.sprite = _useSprites[1];
                 break;
             case Shape.Horizontal:
                 transform.localScale = new Vector3(3, 1, 1);
+                _sr.sprite = _useSprites[2];
                 break;
         }
     }

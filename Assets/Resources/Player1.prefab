@@ -54,6 +54,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _jumpPower: 8
+  _useSprites:
+  - {fileID: -920496882, guid: ca2aed444504fc84f92e66f38c03233e, type: 3}
+  - {fileID: 890429148, guid: ca2aed444504fc84f92e66f38c03233e, type: 3}
+  - {fileID: 1564968131, guid: ca2aed444504fc84f92e66f38c03233e, type: 3}
   _currentShape: 0
 --- !u!114 &2578018646423416595
 MonoBehaviour:
@@ -243,7 +247,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3626701974560759477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: bd81e1d8207d7ba4387a8bdada526d5f, type: 2}
   m_CullingMode: 0
