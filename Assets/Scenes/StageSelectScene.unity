@@ -1391,6 +1391,7 @@ MonoBehaviour:
   - {fileID: 1113339235}
   - {fileID: 1888823881}
   - {fileID: 1962483010}
+  _fadeInObj: {fileID: 8605179702962815199, guid: 3746d0855136f394da4d7ca3d977c7e9, type: 3}
 --- !u!114 &1963940702
 MonoBehaviour:
   m_ObjectHideFlags: 0

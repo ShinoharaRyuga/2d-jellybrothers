@@ -16,6 +16,8 @@ public class StageSelectManager : MonoBehaviour
     [SerializeField, Header("セレクトカラー")] Color[] _selectColors = null;
     [PlayerNameArrayAttribute(new string[] { "Stage1", "Stage2", "Stage3", "Stage4", "Stage5" })]
     [SerializeField] StageSelectButton[] _stageSelectButton = default;
+    [SerializeField, Tooltip("フェードインするプレハブ")]
+    FadeIn _fadeInObj = default;
 
     PhotonView _myView => GetComponent<PhotonView>();
 
@@ -39,15 +41,8 @@ public class StageSelectManager : MonoBehaviour
     /// <param name="sceneName">選択されたシーン名</param>
     public void StageSelect(string sceneName)
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            StartCoroutine(WaitTransition(sceneName));
-        }
-        else
-        {
-            object[] parameters = new object[] { sceneName };
-            _myView.RPC(nameof(SceneChange), RpcTarget.Others, parameters);
-        }
+        object[] parameters = new object[] { sceneName };
+        _myView.RPC(nameof(SceneChange), RpcTarget.All, parameters);
     }
 
     /// <summary>
@@ -81,20 +76,15 @@ public class StageSelectManager : MonoBehaviour
         return _selectColors[ALL_SELECT_COLOR];
     }
 
-    /// <summary>一定時間後シーン遷移する </summary>
-    IEnumerator WaitTransition(string sceneName)
-    {
-        yield return new WaitForSeconds(_waitTime);
-        PhotonNetwork.LoadLevel(sceneName);
-    }
-
-    /// <summary>マスタークライアントではないプレイヤー(2P)
-    /// がステージを選択した場合に呼ばれる 
+    /// <summary>
+    /// フェードインを開始する
+    /// ステージ選択ボタンが押された時に呼ばれる 
     /// </summary>
     [PunRPC]
     void SceneChange(string sceneName)
     {
-        StartCoroutine(WaitTransition(sceneName));
+        var fadeInObj = Instantiate(_fadeInObj);
+        fadeInObj.SceneName = sceneName;
     }
 
     /// <summary>

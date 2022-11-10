@@ -12,14 +12,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 {
     /// <summary>ステージ選択シーン名 </summary>
     const string STAGE_SELECT_SCENE_NAME = "StageSelectScene";
+    /// <summary>フェードインを開始するまでの待ち時間 </summary>
+    const float FADEIN_OBJECT_WAIT_TIME = 3f;
 
     [SerializeField, HideInInspector]
     string _player1PrefabName = "Player1";
     [SerializeField, HideInInspector]
     string _player2PrefabName = "Player2";
+
     [SerializeField, Tooltip("プレイヤーに情報を伝える為のテキスト")]
     TMP_Text _informText = default;
-
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")]
     Transform[] _startSpwanPoint = new Transform[2];
@@ -27,6 +29,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [Tooltip("チェック入れないと自動的にシーン遷移します")]
     [SerializeField, Header("デバッグ時はチェック入れて下さい")]
     bool _debugMode = false;
+
+    [SerializeField, Tooltip("フェードインを行うプレハブ")]
+    FadeIn _fadeInPrefab = default;
 
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }
@@ -118,6 +123,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _startSpwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player2";
             _playerController.PlayerNumber = index;
+
+            StartCoroutine(CreateFadeInObj());
             _informText.text = "プレイヤーが集まりました";
         }
 
@@ -155,7 +162,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
             {
                 _informText.text = "プレイヤーが集まりました";
-                StartCoroutine(TransitionStageSelect());
+                StartCoroutine(CreateFadeInObj());
                 PhotonNetwork.CurrentRoom.IsOpen = false;
             }
         }
@@ -171,10 +178,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
-    /// <summary>ステージ選択画面に遷移する </summary>
-    IEnumerator TransitionStageSelect()
+    /// <summary>一定時間後にフェードインを開始する</summary>
+    IEnumerator CreateFadeInObj()
     {
-        yield return new WaitForSeconds(5);
-        SceneTransition();
+        yield return new WaitForSeconds(FADEIN_OBJECT_WAIT_TIME);
+
+        var fadeInObj = Instantiate(_fadeInPrefab);
+        fadeInObj.SceneName = STAGE_SELECT_SCENE_NAME;
     }
 }
