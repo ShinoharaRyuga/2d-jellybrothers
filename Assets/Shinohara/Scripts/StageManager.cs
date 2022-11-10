@@ -14,9 +14,9 @@ public class StageManager : MonoBehaviour
         Instantiate(_fadeOutPrefab);
     }
 
-    /// <summary>ゴール位置に到着</summary>
+    /// <summary>ステージクリア処理</summary>
     public void StageClear()
     {
-        Debug.Log("hit");
+        Debug.Log("ゴール");
     }
 }

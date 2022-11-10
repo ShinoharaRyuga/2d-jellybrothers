@@ -1,22 +1,18 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
 /// <summary>ゴール直前に存在する扉を開けるためのクラス </summary>
 public class GoalButton : MonoBehaviour
 {
-    /// <summary>ステージ選択シーン名 </summary>
-    const string STAGE_SELECT_SCENE_NAME = "StageSelectScene";
-
     [SerializeField, Header("ステージ選択シーンに遷移するまで時間")] float _transitionTime = 3f; 
     [SerializeField, Header("反応するプレイヤー")] Player _player = default;
     [SerializeField, Tooltip("同時に開く為のボタン")] GoalButton _partnerButton = default;
 
     /// <summary>プレイヤーがボタンに触れているかどうか </summary>
     bool _isHit = false;
-
+    /// <summary>ステージクリア時の処理 </summary>
     event Action _stageClear = default;
 
     SpriteRenderer _renderer => GetComponent<SpriteRenderer>();
@@ -53,8 +49,9 @@ public class GoalButton : MonoBehaviour
             if (_partnerButton.IsHit && _isHit) //同時にボタンが押されていたら扉を開ける
             {
                 _view.RPC(nameof(ArrivalGoal), RpcTarget.All);
-
                 StartCoroutine(TransitionStageSelectScene());
+                GetComponent<BoxCollider2D>().enabled = false;  //クリア後にボタンを押せないようにする為
+
             }
         }
     }
@@ -92,10 +89,6 @@ public class GoalButton : MonoBehaviour
     IEnumerator TransitionStageSelectScene()
     {
         yield return new WaitForSeconds(_transitionTime);
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.LoadLevel(STAGE_SELECT_SCENE_NAME);
-        }
+        NetworkManager.SceneTransition();
     }
 }

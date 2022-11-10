@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using ExitGames.Client.Photon;
 using Photon.Pun;
-using Photon.Realtime;
 
 /// <summary>ステージ選択機能のクラス _selectColorsの添え字</summary>
 [RequireComponent(typeof(PhotonView))]
@@ -96,7 +94,7 @@ public class StageSelectManager : MonoBehaviour
     [PunRPC]
     void SceneChange(string sceneName)
     {
-        PhotonNetwork.LoadLevel(sceneName);
+        StartCoroutine(WaitTransition(sceneName));
     }
 
     /// <summary>

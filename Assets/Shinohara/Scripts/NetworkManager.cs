@@ -10,20 +10,22 @@ using Photon.Realtime;
 /// <summary>ネットワークを管理する </summary>
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField, HideInInspector] 
-    string _player1PrefabName = "Player1";
-    [SerializeField, HideInInspector] 
-    string _player2PrefabName = "Player2";
+    /// <summary>ステージ選択シーン名 </summary>
+    const string STAGE_SELECT_SCENE_NAME = "StageSelectScene";
 
-    [SerializeField, Tooltip("プレイヤーに情報を伝える為のテキスト")] 
+    [SerializeField, HideInInspector]
+    string _player1PrefabName = "Player1";
+    [SerializeField, HideInInspector]
+    string _player2PrefabName = "Player2";
+    [SerializeField, Tooltip("プレイヤーに情報を伝える為のテキスト")]
     TMP_Text _informText = default;
 
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
-    [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")] 
+    [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")]
     Transform[] _startSpwanPoint = new Transform[2];
 
     [Tooltip("チェック入れないと自動的にシーン遷移します")]
-    [SerializeField, Header("デバッグ時はチェック入れて下さい")] 
+    [SerializeField, Header("デバッグ時はチェック入れて下さい")]
     bool _debugMode = false;
 
     PlayerController _playerController = default;
@@ -71,6 +73,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
 
         return null;
+    }
+
+    /// <summary>全プレイヤーを他のシーンに遷移させる </summary>
+    /// <param name="sceneName">遷移先シーン名</param>
+    public static void SceneTransition(string sceneName = STAGE_SELECT_SCENE_NAME)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel(sceneName);
+        }
     }
 
     public override void OnJoinedLobby()
@@ -163,7 +175,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     IEnumerator TransitionStageSelect()
     {
         yield return new WaitForSeconds(5);
-        Debug.Log("遷移する");
-        PhotonNetwork.LoadLevel("StageSelectScene");
+        SceneTransition();
     }
 }

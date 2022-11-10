@@ -7,6 +7,7 @@ public class SceneChanger : MonoBehaviour
     public void WaitingRoomScene()
     {
         SceneManager.LoadScene("WaitingRoomScene");
+        Debug.Log("ŒÄ‚Î‚ê‚é");
     }
 
     /// <summary>ƒQ[ƒ€ƒV[ƒ“‚É‘JˆÚ‚·‚é </summary>
