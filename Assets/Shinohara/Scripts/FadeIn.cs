@@ -11,6 +11,13 @@ public class FadeIn : MonoBehaviour
     /// <summary>フェードイン中にシーン遷移する</summary>
     public void Transition()
     {
-        NetworkManager.SceneTransition(_sceneName);
+        if (_sceneName == "")       //ステージ選択シーンに遷移する
+        {
+            NetworkManager.SceneTransition();
+        }
+        else
+        {
+            NetworkManager.SceneTransition(_sceneName);
+        }
     }
 }

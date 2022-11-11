@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using Photon.Pun;
 
@@ -21,6 +20,7 @@ public class GoalButton : MonoBehaviour
     /// <summary>プレイヤーがボタンに触れているかどうか </summary>
     public bool IsHit { get => _isHit; set => _isHit = value; }
 
+    /// <summary>ステージクリア時の処理 </summary>
     public event Action StageClear
     {
         add { _stageClear += value; }
@@ -49,7 +49,6 @@ public class GoalButton : MonoBehaviour
             if (_partnerButton.IsHit && _isHit) //同時にボタンが押されていたら扉を開ける
             {
                 _view.RPC(nameof(ArrivalGoal), RpcTarget.All);
-                StartCoroutine(TransitionStageSelectScene());
                 GetComponent<BoxCollider2D>().enabled = false;  //クリア後にボタンを押せないようにする為
 
             }
@@ -83,12 +82,5 @@ public class GoalButton : MonoBehaviour
     void ArrivalGoal()
     {
         _stageClear.Invoke();
-    }
-
-    /// <summary>一定時間後にステージ選択シーンに遷移する </summary>
-    IEnumerator TransitionStageSelectScene()
-    {
-        yield return new WaitForSeconds(_transitionTime);
-        NetworkManager.SceneTransition();
     }
 }
