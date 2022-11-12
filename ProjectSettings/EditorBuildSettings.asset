@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 488e6e7d2a60bc74d813e03856431db5
   - enabled: 1
-    path: Assets/Scenes/WaitingRoomScene.unity
+    path: Assets/Scenes/StandByRoomScene.unity
     guid: 337ff54cc424eeb4bbd14f54014a7e6a
   - enabled: 1
     path: Assets/Scenes/StageSelectScene.unity

@@ -589,8 +589,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 187964478}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: WaitingRoomScene
+        m_TargetAssemblyTypeName: StandByRoomTransition, Assembly-CSharp
+        m_MethodName: StandByRoomSceneTransition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

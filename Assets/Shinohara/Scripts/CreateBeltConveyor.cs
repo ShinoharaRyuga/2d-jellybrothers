@@ -15,7 +15,7 @@ public class CreateBeltConveyor : MonoBehaviour
     [SerializeField, Header("移動速度")] float _moveSpeed = 1f;
     [SerializeField, Header("アニメーションスピード")] float _animationSpeed = 1f;
     [SerializeField, Header("ベルトコンベアの数(長さ)"), Min(0)] int _beltConveyorNumber = 0;
-    [SerializeField, Tooltip("ベルトコンベアのプレハブ")] SetBeltConveyorSpeed _beltConveyor = default;
+    [SerializeField, Tooltip("ベルトコンベアのプレハブ")] SetBeltConveyorAnimationSpeed _beltConveyor = default;
     /// <summary>
     /// X位置を保存しておく為の変数
     /// 保存をしないと値が勝手に変わってしまう
@@ -45,8 +45,7 @@ public class CreateBeltConveyor : MonoBehaviour
             var pos = new Vector2(i, transform.position.y);
             var belt = Instantiate(_beltConveyor, pos, Quaternion.identity);
             beltConveyors[i] = belt.transform;
-            // beltConveyors[i].position = transform.position + transform.eulerAngles.normalized * parentPositionX * i;
-            belt.Speed = _animationSpeed;
+            belt.AnimationSpeed = _animationSpeed;
             parentPositionX += i;
         }
 

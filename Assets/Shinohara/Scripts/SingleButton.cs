@@ -5,7 +5,6 @@ public class SingleButton : MonoBehaviour
 {
     [SerializeField, Header("ボタンが押された時に動作するギミック")] StageGimmick _gimmickObject = default;
     [SerializeField, Header("反応するプレイヤー")] Player _player = default;
-
     SpriteRenderer _spriteRenderer => GetComponent<SpriteRenderer>();
 
     private void OnValidate()
@@ -38,7 +37,7 @@ public class SingleButton : MonoBehaviour
     {
         if (collision.gameObject.name == _player.ToString())
         {
-            _gimmickObject.View.RPC("ChangeActive", Photon.Pun.RpcTarget.All);
+            _gimmickObject.View.RPC(nameof(_gimmickObject.ChangeActive), Photon.Pun.RpcTarget.All);
         }
     }
 }

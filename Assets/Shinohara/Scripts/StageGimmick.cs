@@ -55,7 +55,7 @@ public class StageGimmick : MonoBehaviour
     /// <para>オブジェクトの状態によって表示・非表示を変更する</para>
     /// </summary>
     [PunRPC]
-    void ChangeActive()
+    public void ChangeActive()
     {
         if (_isCurrentActive) //非表示にする
         {
@@ -72,7 +72,7 @@ public class StageGimmick : MonoBehaviour
     /// <para>オブジェクトを非表示にする</para>
     /// </summary>
     [PunRPC]
-    void ActiveFalse()
+    public void ActiveFalse()
     {
         _bc2D.enabled = false;
         _spriteRenderer.enabled = false;
@@ -84,7 +84,7 @@ public class StageGimmick : MonoBehaviour
     ///  <para>オブジェクトを表示する</para>
     /// </summary>
     [PunRPC]
-    void ActiveTrue()
+    public void ActiveTrue()
     {
         _bc2D.enabled = true;
         _spriteRenderer.enabled = true;
