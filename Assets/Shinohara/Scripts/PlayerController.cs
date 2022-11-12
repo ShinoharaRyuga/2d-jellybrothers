@@ -132,6 +132,46 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         }
     }
 
+    /// <summary>自機の形を変更する </summary>
+    void ChangeShape()
+    {
+        //次の形を決める
+        var nextShapeInt = (int)_currentShape + 1;
+        var nextShape = nextShapeInt % Enum.GetValues(typeof(Shape)).Length;
+        _currentShape = (Shape)nextShape;
+
+        switch (_currentShape)
+        {
+            case Shape.Cube:
+                transform.localScale = new Vector3(1, 1, 1);
+                _sr.sprite = _useSprites[0];
+                break;
+            case Shape.Vertical:
+                transform.localScale = new Vector3(1, 3, 1);
+                _sr.sprite = _useSprites[1];
+                break;
+            case Shape.Horizontal:
+                transform.localScale = new Vector3(3, 1, 1);
+                _sr.sprite = _useSprites[2];
+                break;
+        }
+    }
+
+    /// <summary>自機の向きを変更し同期する </summary>
+    [PunRPC]
+    void ChangePlayerDirection(float horizontal)
+    {
+        if (horizontal > 0)     //右を向く
+        {
+            _sr.flipX = false;
+        }
+        else if (horizontal < 0)    //左を向く
+        {
+            _sr.flipX = true;
+        }
+
+    }
+
     /// <summary>滑る床で掛ける力を取得 </summary>
     /// <param name="power"></param>
     public void GetSlidePower (float power)
@@ -173,46 +213,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
             NetworkManager.PlayerInstantiate(_playerNumber, spawnPoint);    //プレイヤーを生成する
             PlayerData.Instance.GetCameraTarget();
         }
-    }
-
-    /// <summary>自機の形を変更する </summary>
-    void ChangeShape()
-    {
-        //次の形を決める
-        var nextShapeInt = (int)_currentShape + 1;
-        var nextShape = nextShapeInt % Enum.GetValues(typeof(Shape)).Length;
-        _currentShape = (Shape)nextShape;
-
-        switch (_currentShape)
-        {
-            case Shape.Cube:
-                transform.localScale = new Vector3(1, 1, 1);
-                _sr.sprite = _useSprites[0];
-                break;
-            case Shape.Vertical:
-                transform.localScale = new Vector3(1, 3, 1);
-                _sr.sprite = _useSprites[1];
-                break;
-            case Shape.Horizontal:
-                transform.localScale = new Vector3(3, 1, 1);
-                _sr.sprite = _useSprites[2];
-                break;
-        }
-    }
-
-    /// <summary>自機の向きを変更し同期する </summary>
-    [PunRPC]
-    void ChangePlayerDirection(float horizontal)
-    {
-        if (horizontal > 0)     //右を向く
-        {
-            _sr.flipX = false;
-        }
-        else if (horizontal < 0)    //左を向く
-        {
-            _sr.flipX = true;
-        }
-
     }
 
     enum Shape

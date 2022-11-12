@@ -1,9 +1,6 @@
 using TMPro;
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -22,6 +19,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     [SerializeField, Tooltip("プレイヤーに情報を伝える為のテキスト")]
     TMP_Text _informText = default;
+
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
     [SerializeField, Header("ゲーム開始時のスタート位置"), Tooltip("添え字 0=Player1 1=Player2")]
     Transform[] _startSpwanPoint = new Transform[2];
@@ -30,8 +28,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField, Header("デバッグ時はチェック入れて下さい")]
     bool _debugMode = false;
 
-    [SerializeField, Tooltip("フェードインを行うプレハブ")]
-    FadeIn _fadeInPrefab = default;
+    [SerializeField, Tooltip("フェードインを行うプレハブ")]FadeIn _fadeInPrefab = default;
 
     PlayerController _playerController = default;
     public PlayerController PlayerController { get => _playerController; }

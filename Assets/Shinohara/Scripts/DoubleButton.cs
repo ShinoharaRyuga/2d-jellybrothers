@@ -6,9 +6,9 @@ using UnityEngine;
 /// </summary>
 public class DoubleButton : MonoBehaviour
 {
-    [SerializeField, Header("動作するギミック")] StageGimmick gimmick = default;
+    [SerializeField, Header("動作するギミック")] StageGimmick _gimmick = default;
     [SerializeField, Header("反応するプレイヤー")] Player _player = default;
 
-    public StageGimmick Gimmick { get => gimmick; }
+    public StageGimmick Gimmick { get => _gimmick; }
     public Player Player { get => _player; }
 }

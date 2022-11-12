@@ -11,7 +11,7 @@ public class LiftButton : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _liftGimmick.View.RPC(nameof(LiftGimmick.LiftMove), RpcTarget.All, Time.deltaTime);
+            _liftGimmick.View.RPC(nameof(_liftGimmick.LiftMove), RpcTarget.All, Time.deltaTime);
         }
     }
 
@@ -20,7 +20,7 @@ public class LiftButton : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _liftGimmick.View.RPC("ChangeIsArrivel", RpcTarget.All);
+            _liftGimmick.View.RPC(nameof(_liftGimmick.ChangeIsArrivel), RpcTarget.All);
         }
     }
 }

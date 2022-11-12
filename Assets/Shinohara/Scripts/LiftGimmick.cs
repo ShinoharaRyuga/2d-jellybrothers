@@ -25,12 +25,22 @@ public class LiftGimmick : MonoBehaviour
         _goalPosition = _endPosition.position;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.SetParent(transform);   //Liftと共に動かす為に子オブジェクトにする
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.SetParent(null);
+    }
+
     /// <summary>
     /// Playerがliftを動かすボタンから離れた時に呼ばれる
     /// 次の目的地に移動させる為にfalseにする
     /// </summary>
     [PunRPC]
-    void ChangeIsArrivel()
+    public void ChangeIsArrivel()
     {
         if (_isArrival)
         {
@@ -81,15 +91,5 @@ public class LiftGimmick : MonoBehaviour
         {
             _goalPosition = _startPosition.position;
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        collision.transform.SetParent(transform);   //Liftと共に動かす為に子オブジェクトにする
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        collision.transform.SetParent(null);
     }
 }

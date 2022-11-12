@@ -1,6 +1,6 @@
-using UnityEngine;
 using UnityEditor;
 
+/// <summary>RespawnManagerクラスにコメントを追加する為クラス </summary>
 [CustomEditor(typeof(RespawnManager))]
 public class RespawnManagerEditor : Editor
 {

@@ -1,6 +1,6 @@
 using UnityEditor;
-using UnityEngine;
 
+/// <summary>UpdateRespawnPointにコメントを追加する為クラス </summary>
 [CustomEditor(typeof(UpdateRespawnPoint))]
 public class UpdateRespawnPointEditor : Editor
 {
