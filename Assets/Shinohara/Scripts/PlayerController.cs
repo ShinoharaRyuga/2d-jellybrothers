@@ -168,8 +168,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
             PhotonNetwork.Destroy(gameObject);  //プレイヤーを再生成する為に削除する
             var data = photonEvent.CustomData;
             var respawnPoints = (Vector3[])data;
-            var spawnPoint = respawnPoints[_playerNumber]; 
+            var spawnPoint = respawnPoints[_playerNumber];
+            transform.position = spawnPoint;
             NetworkManager.PlayerInstantiate(_playerNumber, spawnPoint);    //プレイヤーを生成する
+            PlayerData.Instance.GetCameraTarget();
         }
     }
 

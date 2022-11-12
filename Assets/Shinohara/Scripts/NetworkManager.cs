@@ -60,24 +60,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// <param name="playerNumber">どのプレイヤーを生成するか判別する為の変更</param>
     /// <param name="spawnPoint">リスポーンポイント</param>
     /// <returns></returns>
-    public static PlayerController PlayerInstantiate(int playerNumber, Vector2 spawnPoint)
+    public static void PlayerInstantiate(int playerNumber, Vector2 spawnPoint)
     {
         if (playerNumber == 0)
         {
             var player1 = PhotonNetwork.Instantiate(_player1Name, spawnPoint, Quaternion.identity).GetComponent<PlayerController>();
             player1.name = _player1Name;
             player1.PlayerNumber = playerNumber;
-            return player1;
         }
         else if (playerNumber == 1)
         {
             var player2 = PhotonNetwork.Instantiate(_player2Name, spawnPoint, Quaternion.identity).GetComponent<PlayerController>();
             player2.name = _player2Name;
             player2.PlayerNumber = playerNumber;
-            return player2;
         }
-
-        return null;
     }
 
     /// <summary>全プレイヤーを他のシーンに遷移させる </summary>

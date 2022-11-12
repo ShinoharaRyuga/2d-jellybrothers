@@ -18,15 +18,16 @@ public class UpdateRespawnPoint : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !_isContact)
         {
-            _sr.sprite = _updateSprite;
             _respawnManager.SyncRespawnPoint(_pointNumber);
             _view.RPC(nameof(PlayerContacted), RpcTarget.All);
         }
     }
 
+    /// <summary>リスポーン更新オブジェクトに衝突時の処理</summary>
     [PunRPC]
     void PlayerContacted()
     {
+        _sr.sprite = _updateSprite;
         _isContact = true;
     }
 }
