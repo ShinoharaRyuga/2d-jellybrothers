@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(UpdateSpawnPoint))]
+[CustomEditor(typeof(UpdateRespawnPoint))]
 public class UpdateRespawnPointEditor : Editor
 {
     public override void OnInspectorGUI()
