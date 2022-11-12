@@ -43,7 +43,8 @@ public class RespawnManager : MonoBehaviour
     /// <summary>リスポーンポイントを更新し同期する </summary>
     public void SyncRespawnPoint(int respawnPointNumber)
     {
-        _view.RPC("UpdateRespawnPoint", RpcTarget.All, respawnPointNumber);
+        var parameter = new object[] { respawnPointNumber };
+        _view.RPC(nameof(UpdateRespawnPoint), RpcTarget.All, parameter);
     }
 
     /// <summary>リスポーンポイントを更新する</summary>

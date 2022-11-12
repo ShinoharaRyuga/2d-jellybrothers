@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5213430755919945338}
   - component: {fileID: 5213430755919945339}
   - component: {fileID: 107897398}
+  - component: {fileID: 6689082864576838646}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -96,6 +97,36 @@ PlayableDirector:
     value: {fileID: 5213430755919945339}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &6689082864576838646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213430755919945341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 663cca08cfe6e7341b496aa1b99e2821, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8605179702962815199}
+          m_TargetAssemblyTypeName: FadeIn, Assembly-CSharp
+          m_MethodName: Transition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5213430757120033838
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +139,7 @@ GameObject:
   - component: {fileID: 5213430757120033835}
   - component: {fileID: 5213430757120033836}
   - component: {fileID: 5213430757120033837}
+  - component: {fileID: 8605179702962815199}
   m_Layer: 5
   m_Name: FadeIn
   m_TagString: Untagged
@@ -197,3 +229,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8605179702962815199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213430757120033838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe5be0bafd7c2c4d8d3d91a0b2c7038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

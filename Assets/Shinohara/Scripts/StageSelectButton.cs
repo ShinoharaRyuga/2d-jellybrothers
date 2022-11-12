@@ -24,7 +24,6 @@ public class StageSelectButton : MonoBehaviour
     /// <summary>全プレイヤーのカーソルがボタンのに乗っている </summary>
     public bool _allPlayerSelect => IsSelect[0] && IsSelect[1];
 
-
     public void ChangeAllSelectColor()
     {
         if (_allPlayerSelect)

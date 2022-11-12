@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Shinohara/Scenes/RespawnTestScene.unity
+    guid: c05abafd15fa62e4fb80f6061258417f
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: 488e6e7d2a60bc74d813e03856431db5
