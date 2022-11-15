@@ -11,13 +11,13 @@ public class PlayerData
 
     PlayerController _playerController = default;
 
-    /// <summary>カメラが追従する対象を取得する </summary>
+    /// <summary>カメラが追従する対象を取得する際に呼ぶデリケート </summary>
     Action _getCameraTarget = default;
 
     public PlayerController PlayerController { get => _playerController; set => _playerController = value; }
 
     public int PlayerNumber => _playerController.PlayerNumber;
 
-    /// <summary>カメラが追従する対象を取得する </summary>
+    /// <summary>カメラが追従する対象を取得する際に呼ぶデリケート </summary>
     public Action GetCameraTarget { get => _getCameraTarget; set => _getCameraTarget = value; }
 }
