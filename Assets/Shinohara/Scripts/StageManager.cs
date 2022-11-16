@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
     {
         var playerNumber = PlayerData.Instance.PlayerController.PlayerNumber;
         NetworkManager.PlayerInstantiate(playerNumber, _startSpwanPoint[playerNumber].position);
-        PlayerData.Instance.GetCameraTarget = _camera.GetTarget;
+        PlayerData.Instance.DelGetCameraTarget += _camera.GetTarget;
         Instantiate(_fadeOutPrefab);
     }
 

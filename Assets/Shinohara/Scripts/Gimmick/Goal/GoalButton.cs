@@ -12,7 +12,7 @@ public class GoalButton : MonoBehaviour
     /// <summary>プレイヤーがボタンに触れているかどうか </summary>
     bool _isHit = false;
     /// <summary>ステージクリア時の処理 </summary>
-    event Action _stageClear = default;
+    event Action _delStageClear = default;
 
     SpriteRenderer _renderer => GetComponent<SpriteRenderer>();
     SetGoalWall _goalGimmick => transform.parent.GetComponent<SetGoalWall>();
@@ -21,10 +21,10 @@ public class GoalButton : MonoBehaviour
     public bool IsHit { get => _isHit; set => _isHit = value; }
 
     /// <summary>ステージクリア時の処理 </summary>
-    public event Action StageClear
+    public event Action DelStageClear
     {
-        add { _stageClear += value; }
-        remove { _stageClear -= value; }
+        add { _delStageClear += value; }
+        remove { _delStageClear -= value; }
     }
 
     private void OnValidate()
@@ -81,6 +81,6 @@ public class GoalButton : MonoBehaviour
     [PunRPC]
     void ArrivalGoal()
     {
-        _stageClear.Invoke();
+        _delStageClear.Invoke();
     }
 }

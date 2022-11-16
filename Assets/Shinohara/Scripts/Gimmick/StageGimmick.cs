@@ -108,6 +108,7 @@ public class StageGimmick : MonoBehaviour
         }
     }
 
+    /// <summary>オブジェクトの色 </summary>
     public enum ObjectColor
     {
         Red,
