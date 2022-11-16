@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
             var spawnPoint = respawnPoints[_playerNumber];
             transform.position = spawnPoint;
             NetworkManager.PlayerInstantiate(_playerNumber, spawnPoint);    //ƒvƒŒƒCƒ„[‚ğ¶¬‚·‚é
-            PlayerData.Instance.GetCameraTarget?.Invoke();
+            PlayerData.Instance.GetCameraTargetInvoke();
         }
     }
 

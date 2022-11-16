@@ -13,6 +13,6 @@ public class GoalButtonManager : MonoBehaviour
         _goalButtons[0] = transform.GetChild(0).GetComponent<GoalButton>();
         _goalButtons[1] = transform.GetChild(1).GetComponent<GoalButton>();
 
-        Array.ForEach(_goalButtons, g => g.StageClear += _stageManager.StageClear);     //Šeƒ{ƒ^ƒ“‚ÉŠÖ”‚ğ“o˜^‚·‚é
+        Array.ForEach(_goalButtons, g => g.DelStageClear += _stageManager.StageClear);     //Šeƒ{ƒ^ƒ“‚ÉŠÖ”‚ğ“o˜^‚·‚é
     }
 }
