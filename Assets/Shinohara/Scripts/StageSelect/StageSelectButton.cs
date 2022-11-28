@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-using ExitGames.Client.Photon;
 using Photon.Pun;
-using Photon.Realtime;
 
 /// <summary>ステージ選択ボタンを管理するクラス </summary>
+[RequireComponent(typeof(Button), typeof(Image), typeof(PhotonView))]
 public class StageSelectButton : MonoBehaviour
 {
     [SerializeField, Header("シーンに存在するものをアタッチ")] StageSelectManager _stageSelectManager;
@@ -36,6 +35,7 @@ public class StageSelectButton : MonoBehaviour
         }
     }
 
+    /// <summary>ボタンの色を同期する </summary>
     [PunRPC]
     void AsyncButtonColor()
     {

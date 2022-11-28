@@ -47,7 +47,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        Connect();
+        Connect();  //サーバーに接続
     }
 
     /// <summary>
@@ -59,13 +59,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// <returns></returns>
     public static void PlayerInstantiate(int playerNumber, Vector2 spawnPoint)
     {
-        if (playerNumber == 0)
+        if (playerNumber == 0)  //1P
         {
             var player1 = PhotonNetwork.Instantiate(_player1Name, spawnPoint, Quaternion.identity).GetComponent<PlayerController>();
             player1.name = _player1Name;
             player1.PlayerNumber = playerNumber;
         }
-        else if (playerNumber == 1)
+        else if (playerNumber == 1) //2P
         {
             var player2 = PhotonNetwork.Instantiate(_player2Name, spawnPoint, Quaternion.identity).GetComponent<PlayerController>();
             player2.name = _player2Name;
@@ -105,13 +105,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         var index = PhotonNetwork.LocalPlayer.ActorNumber - 1;
 
-        if (index == 0)
+        if (index == 0) //1Pを生成
         {
             _playerController = PhotonNetwork.Instantiate(_player1PrefabName, _startSpwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player1";
             _playerController.PlayerNumber = index;
         }
-        else if (index == 1)
+        else if (index == 1)    //2Pを生成
         {
             _playerController = PhotonNetwork.Instantiate(_player2PrefabName, _startSpwanPoint[index].position, Quaternion.identity).GetComponent<PlayerController>();
             _playerController.name = "Player2";
@@ -146,13 +146,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("ルームを作成");
     }
 
+    /// <summary>他プレイヤーが参加時の処理 </summary>
+    /// <param name="newPlayer"></param>
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
         Debug.Log("他のプレイヤーが参加しました。");
 
         if (!_debugMode)
         {
-            if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.LocalPlayer.ActorNumber >= PhotonNetwork.CurrentRoom.MaxPlayers - 1 && PhotonNetwork.IsMasterClient)  //ゲームを開始する
             {
                 _informText.text = "プレイヤーが集まりました";
                 StartCoroutine(CreateFadeInObj());

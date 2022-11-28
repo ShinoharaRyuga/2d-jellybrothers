@@ -1,6 +1,7 @@
 using UnityEngine;
 
 /// <summary>ベルトコンベアのアニメーション速度を決める </summary>
+[RequireComponent(typeof(Animator))]
 public class SetBeltConveyorAnimationSpeed : MonoBehaviour
 {
     /// <summary>アニメーションスピード </summary>
@@ -22,7 +23,7 @@ public class SetBeltConveyorAnimationSpeed : MonoBehaviour
 
     private void Update()
     {
-        _anim.speed = _animationSpeed;
+        _anim.speed = _animationSpeed;  //デバッグ用
     }
 
 }

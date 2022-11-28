@@ -9,6 +9,7 @@ using UnityEditor;
 /// ベルトコンベア（動く床ギミック）を作成するクラス
 /// ベルトコンベアのプレハブを並べて作成している
 /// </summary>
+[RequireComponent(typeof(BoxCollider2D))]
 public class CreateBeltConveyor : MonoBehaviour
 {
     [SerializeField, Header("移動方向反転")] bool _isReverse = false;

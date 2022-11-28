@@ -3,6 +3,7 @@ using UnityEngine;
 using Photon.Pun;
 
 /// <summary>ゴール直前に存在する扉を開けるためのクラス </summary>
+[RequireComponent(typeof(SpriteRenderer), typeof(PhotonView))]
 public class GoalButton : MonoBehaviour
 {
     [SerializeField, Header("ステージ選択シーンに遷移するまで時間")] float _transitionTime = 3f; 

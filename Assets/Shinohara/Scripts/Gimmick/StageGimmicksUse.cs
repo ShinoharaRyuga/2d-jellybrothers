@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>一つのボタンで複数のギミックを動作する為クラス </summary>
+[RequireComponent(typeof(SpriteRenderer))]
 public class StageGimmicksUse : MonoBehaviour
 {
     [SerializeField, Header("ボタンが押された時に動作するギミック")] List<StageGimmick> _gimmickObjects = default;
