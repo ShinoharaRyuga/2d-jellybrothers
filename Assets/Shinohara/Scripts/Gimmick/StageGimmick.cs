@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 /// <summary>扉・床・足場ギミックの表示・非表示を変更する </summary>
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(BoxCollider2D), typeof(PhotonView), typeof(SpriteRenderer))]
 public class StageGimmick : MonoBehaviour
 {
     ///　<summary>
@@ -42,7 +42,6 @@ public class StageGimmick : MonoBehaviour
                 _spriteRenderer.color = Color.white;
                 break;
         }
-
     }
 
     private void Start()

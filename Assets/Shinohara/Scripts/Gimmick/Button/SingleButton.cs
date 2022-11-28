@@ -1,6 +1,7 @@
 using UnityEngine;
 
 /// <summary>ギミック動作させることが出来るボタン </summary>
+[RequireComponent(typeof(SpriteRenderer))]
 public class SingleButton : MonoBehaviour
 {
     [SerializeField, Header("ボタンが押された時に動作するギミック")] StageGimmick _gimmickObject = default;

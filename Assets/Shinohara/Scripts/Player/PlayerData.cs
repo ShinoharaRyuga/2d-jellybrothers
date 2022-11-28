@@ -25,6 +25,7 @@ public class PlayerData
         remove { _delGetCameraTarget -= value; }
     }
 
+    /// <summary>Action‚É“o˜^‚³‚ê‚Ä‚¢‚éˆ—‚ğŒÄ‚Ño‚·ˆ×‚ÌŠÖ” </summary>
     public void GetCameraTargetInvoke()
     {
         _delGetCameraTarget?.Invoke();

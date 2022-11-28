@@ -5,9 +5,12 @@ using Photon.Realtime;
 using ExitGames.Client.Photon;  
 
 /// <summary>自機を操作する為のクラス </summary>
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
+    /// <summary>使用出来るphotoのイベントコード </summary>
+    const int PHOTON_EVENT_CODE = 200;
+
     [SerializeField, Header("移動速度")] float _speed = 3f;
     [SerializeField, Header("ジャンプ力")] float _jumpPower = 3f;
     [SerializeField, Header("使用イラスト")] Sprite[] _useSprites = default;
@@ -180,12 +183,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
         _onSlideFloor = true;
     }
 
-    public void SetOnBeltConveyor(Vector2 direction)
-    {
-        _onBeltConveyorDirection = direction;
-        _onBeltConveyor = true;
-    }
-
     //アニメーション終了時の処理
     public void EndAnim()
     {
@@ -203,7 +200,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IOnEventCallback
     /// <param name="photonEvent">リスポーンポイント</param>
     public void OnEvent(EventData photonEvent)
     {
-        if ((int)photonEvent.Code < 200 && _view.IsMine)
+        if ((int)photonEvent.Code < PHOTON_EVENT_CODE && _view.IsMine)
         {
             PhotonNetwork.Destroy(gameObject);  //プレイヤーを再生成する為に削除する
             var data = photonEvent.CustomData;

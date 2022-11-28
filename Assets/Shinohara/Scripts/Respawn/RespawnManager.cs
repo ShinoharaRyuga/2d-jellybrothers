@@ -6,6 +6,7 @@ using Photon.Realtime;
 using ExitGames.Client.Photon;
 
 /// <summary>リスポーンに関しての処理が書かれているクラス </summary>
+[RequireComponent(typeof(PhotonView))]
 public class RespawnManager : MonoBehaviour
 {
     [PlayerNameArrayAttribute(new string[] { "Player1", "Player2" })]
