@@ -6,7 +6,7 @@ Visual Studio 2022<br>
 Sourcetree<br>
 
 ## 概要
-協力型パズルアクションゲーム
+協力型パズルアクションゲーム<br>
 プレイ人数 2人  
 ステージ制 (５ステージ)<br>
 [プレイ動画](https://youtu.be/PYXJHTZMtz0)
